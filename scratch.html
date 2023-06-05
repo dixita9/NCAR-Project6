@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yes/No Question</title>
+</head>
+<body>
+  <h1>Yes/No Question</h1>
+
+  <div id="question">
+    <p>Is JavaScript an object-oriented programming language?</p>
+  </div>
+
+  <div id="options">
+    <label>
+      <input type="radio" name="answer" value="yes"> Yes
+    </label>
+    <label>
+      <input type="radio" name="answer" value="no"> No
+    </label>
+  </div>
+
+  <button onclick="submitAnswer()">Submit Answer</button>
+
+  <script>
+    function submitAnswer() {
+      var selectedOption = document.querySelector('input[name="answer"]:checked');
+
+      if (selectedOption) {
+        var answer = selectedOption.value;
+        alert("Your answer: " + answer);
+      } else {
+        alert("Please select an option.");
+      }
+    }
+  </script>
+</body>
+</html>

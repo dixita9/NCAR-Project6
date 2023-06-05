@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+    <head>
+
+
+        <meta charset="UTF-8">
+
+
+         <title>Student Exercise 1</title>
+
+         <script src="StudentExercises.js"></script>
+
+    </head>
+
+
+    <body>
+        <h1>Student Exercise 1 [5 minutes]</h1>
+
+        <ol>
+            <li>Determine the following:</li>
+            <ul>
+                <li>Total number of independent grid-points <br>
+                    <input type = "text" id = "igp" placeholder = "Enter Here">
+                </li>
+    
+                <br>
+                <li># {nodes,GPU} per run <br>
+                    <input type = "text" id = "npr" placeholder = "Enter Here">
+                </li>
+                    <br>
+                    <br>
+                    <button onclick="CalcOne()"> Calculate </button>
+                    <p id= "output"> </p>
+
+                <li># timesteps per run
+                </li>
+            </ul>
+            <li>Does it perform I/O frequently?
+            </li>
+
+            <div id="options">
+                <label>
+                  <input type="radio" name="answer" value="yes"> Yes
+                </label>
+            
+                <label>
+                  <input type="radio" name="answer" value="no"> No
+                </label>
+            </div>
+            <li>Do you have rate or throughput limitations?
+            </li>
+            <div id="options2">
+                <label>
+                  <input type="radio" name="answer2" value="yes"> Yes
+                </label>
+                <label>
+                  <input type="radio" name="answer2" value="no"> No
+                </label>
+            </div>
+            <button onclick="Submit()">Submit</button>
+            <button onclick="ClearOptions()"> Clear </button>
+
+            <p id = "ans" > </p>
+            
+        </ol>
+
+        <p>Discuss as a group any interesting realizations [7 minutes]</p>
+
+
+
+
+ 
+
+
+    </body>
+
+
+</html>
