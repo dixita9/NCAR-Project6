@@ -8,7 +8,7 @@
 
 
         <meta charset="UTF-8">
-        <script src="StudentExercises.js"></script>
+        
         <title>Student Exercise 2</title>
 
 
@@ -16,13 +16,13 @@
 
 
     <body>
-
+        <!-- Student Exercise 2 begins here-->
         <h1>Student Exercise 2 [13 minutes]</h1>
 
             
-        <div id="options">
-            <p>Does a GPU version of your code already exist?</p>
-            <label>
+        <div id="options"> 
+            <p>Does a GPU version of your code already exist?</p> <!-- Question 1-->
+            <label><!-- Radio options for Question 1-->
                 <input type="radio" name="answer" value="yes" onclick="ShowAdditionalQues()"> Yes [0 points]
             </label>
             <label>
@@ -32,43 +32,39 @@
 
     
         <div id="options2" style="display: none;">
-            <p>Are the desired physics packaged GPU-enabled?</p>
-            <label>
+            <p>Are the desired physics packaged GPU-enabled?</p><!-- Question 2 (nested)-->
+            <label><!-- Radio options for Question 2-->
                 <input type="radio" name="answer2" value="yes"> Yes [1 point]
             </label>
             <label>
                 <input type="radio" name="answer2" value="no"> No [3 points]
             </label>
         </div>
-    
-    
-        
-        
 
             <p>Is the code writing in such a way that it is GPU-ready?
             </p>
             <ul>
-                <li>Is full parallelism is available at loop level?</li>
+                <li>Is full parallelism is available at loop level?</li> <!-- Question 3-->
                 <ul>
-                    <label>
+                    <label><!-- Radio options for Question 3-->
                         <input type="radio" name="answer3" value="yes"> Yes [1 point]
                     </label>
                     <label>
                         <input type="radio" name="answer3" value="no"> No [7 points]
                     </label>
                 </ul>
-                <li>Does a threaded version of the code exist?</li>
+                <li>Does a threaded version of the code exist?</li> <!-- Question 4-->
                 <ul>
-                    <label>
+                    <label><!-- Radio options for Question 4-->
                         <input type="radio" name="answer4" value="yes"> Yes [1 point]
                     </label>
                     <label>
                         <input type="radio" name="answer4" value="no"> No [7 points]
                     </label>
                 </ul>
-                <li>Does the code have some form of verification?</li>
+                <li>Does the code have some form of verification?</li> <!-- Question 5-->
                 <ul>
-                    <label>
+                    <label><!-- Radio options for Question 5-->
                         <input type="radio" name="answer5" value="yes"> Yes [1 point]
                     </label>
                     <label>
@@ -76,18 +72,20 @@
                     </label>
                 </ul>
             </ul>
-
+        
+        <!-- Submit button calls the CalcultePoints() function and performs the necessary calculations-->
         <button onclick="CalculatePoints()">Submit</button>
+        <!-- Clear button calls the ClearOptions2() function and clears all the radio options in the form-->
         <button onclick="ClearOptions2()"> Clear </button>
 
-        <p id="TotalPoints"> </p>
+        <p id="TotalPoints"> </p> <!-- The Total Points are displayed here-->
 
 
         
  
 
-    <script src="StudentExercises.js"></script>
+    <script src="StudentExercises.js"></script> <!--Linked JS file-->
     </body>
-
+ <!-- Student Exercise 2 ends here-->
 
 </html>

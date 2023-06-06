@@ -12,11 +12,11 @@
 
          <title>Student Exercise 1</title>
 
-         <script src="StudentExercises.js"></script>
+         <script src="StudentExercises.js"></script> <!--Linked JS file-->
 
     </head>
 
-
+    <!-- Student Exercise 1 begins here-->
     <body>
         <h1>Student Exercise 1 [5 minutes]</h1>
 
@@ -24,24 +24,26 @@
             <li>Determine the following:</li>
             <ul>
                 <li>Total number of independent grid-points <br>
-                    <input type = "text" id = "igp" placeholder = "Enter Here">
+                <!--Input placeholders for first question -->
+                    <input type = "text" id = "inputone" placeholder = "Enter Here">
                 </li>
     
                 <br>
                 <li># {nodes,GPU} per run <br>
-                    <input type = "text" id = "npr" placeholder = "Enter Here">
+                    <input type = "text" id = "inputtwo" placeholder = "Enter Here">
                 </li>
                     <br>
                     <br>
+                    <!-- Calculate Button calls the CalcOne() function and performs division-->
                     <button onclick="CalcOne()"> Calculate </button>
-                    <p id= "output"> </p>
+                    <p id= "output"> </p> <!-- Output is shown here-->
 
                 <li># timesteps per run
                 </li>
             </ul>
-            <li>Does it perform I/O frequently?
+            <li>Does it perform I/O frequently? <!-- Question 1-->
             </li>
-
+            <!-- Radio options for Question 1-->
             <div id="options">
                 <label>
                   <input type="radio" name="answer" value="yes"> Yes
@@ -51,8 +53,9 @@
                   <input type="radio" name="answer" value="no"> No
                 </label>
             </div>
-            <li>Do you have rate or throughput limitations?
+            <li>Do you have rate or throughput limitations?<!-- Question 2-->
             </li>
+            <!-- Radio options for Question 2-->
             <div id="options2">
                 <label>
                   <input type="radio" name="answer2" value="yes"> Yes
@@ -61,15 +64,17 @@
                   <input type="radio" name="answer2" value="no"> No
                 </label>
             </div>
-            <button onclick="Submit()">Submit</button>
+            <!-- Submit button calls the Submit() function-->
+            <button onclick="Submit()">Submit</button> 
+            <!-- Clear button calls the ClearOptions() function-->
             <button onclick="ClearOptions()"> Clear </button>
 
-            <p id = "ans" > </p>
+            <p id = "ans" > </p> <!-- The chosen options are displayed here-->
             
         </ol>
 
         <p>Discuss as a group any interesting realizations [7 minutes]</p>
-
+        <!-- Student Exercise 1 ends here-->
 
 
 
