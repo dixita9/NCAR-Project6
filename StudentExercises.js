@@ -193,5 +193,11 @@ function ClearOptions2(){
     
     document.getElementById("TotalPoints").innerHTML = "" //this line clears the Total Points displayed in the screen
 
+
+    if (TotalPoints < 50){
+
+        
+
+    }
 }
 
