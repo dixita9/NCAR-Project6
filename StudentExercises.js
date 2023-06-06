@@ -1,14 +1,19 @@
-function CalcOne (){
-    var x = document.getElementById("igp").value;
-    var y = document.getElementById("npr").value;
 
-    var sum = x / y
+//Calculation for student exercise 1 
+//the function divides two numbers given as an input
+function CalcOne (){
+    var x = document.getElementById("inputone").value;
+    var y = document.getElementById("inputtwo").value;
+
+    var division = x / y
 
     var outputElement = document.getElementById("output");
-    outputElement.innerHTML = "# grid-points per {node,GPU} :" + sum;
+    outputElement.innerHTML = "# grid-points per {node,GPU} :" + division;
 
 }
 
+//Submit button for student exercise 1 
+//This function submits all the chosen options and displays what was chosen
 function Submit(){
     var answer = document.querySelector('input[name="answer"]:checked');
     var answer2 = document.querySelector('input[name="answer2"]:checked');
@@ -20,7 +25,8 @@ function Submit(){
         alert("Please answer all questions.");
       }
 }
-
+//Clear Options button for student exercise 1 
+//This function clears all the chosen options and resets the form
 function ClearOptions(){
 
     var radios1 = document.getElementsByName("answer")
@@ -38,6 +44,7 @@ function ClearOptions(){
 
 }
 
+//this function displays the nested question for student exercise 2
 function ShowAdditionalQues(){
 
     var radios1 = document.getElementsByName("answer");
@@ -51,6 +58,9 @@ function ShowAdditionalQues(){
     }
 
 }
+
+
+// Function for calculating Total Points for exercise 2
 
 function CalculatePoints(){
 
@@ -100,7 +110,7 @@ function CalculatePoints(){
 
     
 
-    // question 3 
+    // question 3: Is full parallelism is available at loop level?
 
     if ( radios3[0].checked == true){
         
@@ -112,7 +122,7 @@ function CalculatePoints(){
         TotalPoints += 7
     }
 
-    // question 4
+    // question 4: Does a threaded version of the code exist?
 
     if ( radios4[0].checked == true){
         
@@ -124,7 +134,7 @@ function CalculatePoints(){
         TotalPoints += 7
     }
 
-    // question 5
+    //question 5: Does the code have some form of verification?
 
     if ( radios5[0].checked == true){
         
@@ -146,7 +156,7 @@ function CalculatePoints(){
 
 } 
 
-
+//Fuction that clears all the options in exercise 2
 
 function ClearOptions2(){
 
@@ -181,17 +191,7 @@ function ClearOptions2(){
     var answer2 = document.querySelector('input[name="answer2"]:checked');
 
     
-    document.getElementById("TotalPoints").innerHTML = ""
+    document.getElementById("TotalPoints").innerHTML = "" //this line clears the Total Points displayed in the screen
 
-}
-
-function isAllChecked(radioGroup) {
-    var radios = document.getElementsByName(radioGroup);
-    for (var i = 0; i < radios.length; i++) {
-        if (!radios[i].checked) {
-            return false;
-        }
-    }
-    return true;
 }
 
