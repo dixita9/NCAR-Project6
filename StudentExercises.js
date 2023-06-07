@@ -10,6 +10,8 @@ function CalcOne (){
     var outputElement = document.getElementById("output");
     outputElement.innerHTML = "# grid-points per {node,GPU} :" + division;
 
+    return division
+
 }
 
 //Submit button for student exercise 1 
@@ -18,12 +20,38 @@ function Submit(){
     var answer = document.querySelector('input[name="answer"]:checked');
     var answer2 = document.querySelector('input[name="answer2"]:checked');
 
-    if (answer && answer2) {
+    var divisionresult = CalcOne() //reference from CalcOne() function
 
-        document.getElementById("ans").innerHTML = "Your Answers: " + answer.value + " and " + answer2.value
+    if (answer && answer2) {
+        //this line of code displays the answers chosen by the user
+        document.getElementById("ans").innerHTML = "Your Answers: " + divisionresult + ", " + answer.value + " and " + answer2.value
       } else {
+        //this line of code alerts the user if all the answers are not selected
         alert("Please answer all questions.");
       }
+
+    var result2Element = document.getElementById("result2");
+     
+    var radios1 = document.getElementsByName("answer")
+    var radios2 = document.getElementsByName("answer2")
+
+    //if the division result is less than 50 AND Yes is checked in 2nd question AND Rate is checked in 3rd question, 
+    // the following message is displayed:
+    if ((divisionresult <= 50 ) && (radios1[0].checked) && (radios2[0].checked)) {
+        result2Element.innerHTML = "Your application is a good match for GPU enabled computing!";
+    //if the division result is more than 50 AND No is checked in 2nd question AND Throughput is checked in 3rd question, 
+    // the following message is displayed:
+    } else if ((divisionresult > 50 ) && (radios1[1].checked) && (radios2[1].checked)) {
+        result2Element.innerHTML = "Your application is a poor match for GPU enabled computing :(";
+    } else {
+
+        //In all other combination of scenarios, the following message is displayed:
+
+        result2Element.innerHTML = "Your application is a poor match for GPU enabled computing :("
+
+    }
+
+
 }
 //Clear Options button for student exercise 1 
 //This function clears all the chosen options and resets the form
@@ -73,7 +101,7 @@ function CalculatePoints(){
     
   
     var TotalPoints = 0
-    if (
+    if (// this block of code checks whether all the radios are checked or not
         (radios1[0].checked || radios1[1].checked) &&
         ((radios1[0].checked && (radios2[0].checked || radios2[1].checked)) ||
         radios1[1].checked) &&
@@ -145,12 +173,32 @@ function CalculatePoints(){
         
         TotalPoints += 7
     }
+    //this line displays the Total Points Calculated in an HTML element. 
+    document.getElementById("TotalPoints").textContent = "Total Points:" + TotalPoints 
+
+    //this variable is getting reference from "result" : a <p> HTML element
+    var resultElement = document.getElementById("result");
+      
+    if (0 < TotalPoints && TotalPoints <= 10) {
+        //if Total points is between 0 to 10, the following message is displayed:
+        resultElement.innerHTML = "Easy Peezy! It is going to be very easy to make your application GPU enabled.";
+    } else if (10 < TotalPoints && TotalPoints <= 15) {
+        //if Total points is between 10 to 15, the following message is displayed:
+        resultElement.innerHTML = "Not too hard! It is going to take some work to make your application GPU enabled.";
+    } else if (15 < TotalPoints && TotalPoints <= 25) {
+        
+        //if Total points is between 15 to 25, the following message is displayed:
+        resultElement.innerHTML = "Difficult! It is going to be very hard to make your application GPU enabled.";
+    }
     
-    document.getElementById("TotalPoints").textContent = "Total Points:" + TotalPoints
+    
+    
     } else {
     // Alert if any options are missing
     alert("Please select all options before calculating points.");
   }   
+
+  
     
 
 
@@ -194,10 +242,10 @@ function ClearOptions2(){
     document.getElementById("TotalPoints").innerHTML = "" //this line clears the Total Points displayed in the screen
 
 
-    if (TotalPoints < 50){
+    
+}
 
-        
-
-    }
+function Submit3(){
+    document.getElementById("question2").style.display = "block";
 }
 
