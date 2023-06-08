@@ -245,7 +245,53 @@ function ClearOptions2(){
     
 }
 
-function Submit3(){
-    document.getElementById("question2").style.display = "block";
-}
+function Submit3() {
+    var selectedOption = document.getElementById("mySelect").value;
+    var question2Div = document.getElementById("question2");
+    var chosenValueSpan = document.getElementById("chosenValue");
+  
+    if (selectedOption !== "") {
+      question2Div.style.display = "block";
+      if (selectedOption === "1") {
+        // Display a different message for option "1"
+        document.getElementById("message2").textContent = "Please enter a number";
+      } else {
+        // Display the current message for other options
+        document.getElementById("message2").textContent = "Please enter " + selectedOption + " numbers separated by commas.";
+      }
+    } else {
+      question2Div.style.display = "none";
+    }
+  }
+
+  function CalculateNums() {
+    var numbersInput = document.getElementById("nums").value;
+    var numbersArray = numbersInput.split(",");
+    var product = 1;
+  
+    // Iterate over the numbers and calculate the product
+    for (var i = 0; i < numbersArray.length; i++) {
+      var number = parseInt(numbersArray[i].trim());
+      if (!isNaN(number)) {
+        product *= number;
+      }
+    }
+    
+    //display the ROI based on the product
+    if (product <= 500){
+
+        var resultElement = document.getElementById("result");
+        resultElement.innerHTML = "The ROI is 3x. <br> <br> Would a 3x ROI have a meaningful impact on your science?" 
+
+    }
+    else if (product > 500){
+
+        var resultElement = document.getElementById("result");
+        resultElement.innerHTML = "The ROI is 5x. <br> <br> Would a 5x ROI have a meaningful impact on your science?" 
+
+    }
+    
+
+
+  }
 
