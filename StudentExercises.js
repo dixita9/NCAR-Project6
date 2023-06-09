@@ -262,36 +262,44 @@ function Submit3() {
     } else {
       question2Div.style.display = "none";
     }
-  }
+}
 
-  function CalculateNums() {
+function CalculateNums() {
     var numbersInput = document.getElementById("nums").value;
     var numbersArray = numbersInput.split(",");
+    var selectedOption = document.getElementById("mySelect").value;
+    var selectedOptionNum = parseInt(selectedOption);
+
+
+    
+    // Check if the number of inputs matches the selected nesting levels
+  if (numbersArray.length === selectedOptionNum) {
     var product = 1;
-  
+
     // Iterate over the numbers and calculate the product
     for (var i = 0; i < numbersArray.length; i++) {
-      var number = parseInt(numbersArray[i].trim());
+      var number = parseInt(numbersArray[i]);
       if (!isNaN(number)) {
         product *= number;
       }
     }
-    
-    //display the ROI based on the product
-    if (product <= 500){
 
-        var resultElement = document.getElementById("result");
-        resultElement.innerHTML = "The ROI is 3x. <br> <br> Would a 3x ROI have a meaningful impact on your science?" 
-
+    // Display the ROI based on the product
+    if (product <= 500) {
+      var resultElement = document.getElementById("result");
+      resultElement.innerHTML =
+        "The ROI is 3x. <br> <br> Would a 3x ROI have a meaningful impact on your science?";
+    } else if (product > 500) {
+      var resultElement = document.getElementById("result");
+      resultElement.innerHTML =
+        "The ROI is 5x. <br> <br> Would a 5x ROI have a meaningful impact on your science?";
     }
-    else if (product > 500){
-
-        var resultElement = document.getElementById("result");
-        resultElement.innerHTML = "The ROI is 5x. <br> <br> Would a 5x ROI have a meaningful impact on your science?" 
-
-    }
-    
-
-
+  } else {
+    // If the number of inputs doesn't match the selected nesting levels
+    alert("Please enter the correct number of inputs.");
   }
+}
+    
+
+
 
