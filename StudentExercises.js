@@ -246,60 +246,111 @@ function ClearOptions2(){
 }
 
 function Submit3() {
-    var selectedOption = document.getElementById("mySelect").value;
-    var question2Div = document.getElementById("question2");
-    var chosenValueSpan = document.getElementById("chosenValue");
-  
-    if (selectedOption !== "") {
-      question2Div.style.display = "block";
-      if (selectedOption === "1") {
-        // Display a different message for option "1"
-        document.getElementById("message2").textContent = "Please enter a number";
-      } else {
-        // Display the current message for other options
-        document.getElementById("message2").textContent = "Please enter " + selectedOption + " numbers separated by commas.";
-      }
+  var selectedOption = document.getElementById("mySelect").value;
+  var question2Div = document.getElementById("question2");
+  var chosenValueSpan = document.getElementById("chosenValue");
+
+  if (selectedOption !== "") {
+    question2Div.style.display = "block";
+    if (selectedOption === "1") {
+      // Display a different message for option "1"
+      document.getElementById("message2").textContent = "Please enter a number";
     } else {
-      question2Div.style.display = "none";
+      // Display the current message for other options
+      document.getElementById("message2").textContent = "Please enter " + selectedOption + " numbers separated by commas.";
     }
+  } else {
+    question2Div.style.display = "none";
+  }
 }
+
 
 function CalculateNums() {
     var numbersInput = document.getElementById("nums").value;
-    var numbersArray = numbersInput.split(",");
+    var numbersArray = numbersInput.split(",").map((num) => num.trim());
     var selectedOption = document.getElementById("mySelect").value;
     var selectedOptionNum = parseInt(selectedOption);
 
 
-    
+  
     // Check if the number of inputs matches the selected nesting levels
-  if (numbersArray.length === selectedOptionNum) {
-    var product = 1;
-
-    // Iterate over the numbers and calculate the product
-    for (var i = 0; i < numbersArray.length; i++) {
-      var number = parseInt(numbersArray[i]);
-      if (!isNaN(number)) {
-        product *= number;
+    if (numbersArray.length === selectedOptionNum) {
+      var validInputs = true;
+  
+      // Check if each input is a valid number
+      for (var i = 0; i < numbersArray.length; i++) {
+        var number = parseInt(numbersArray[i]);
+        if (isNaN(number)) {
+          validInputs = false;
+          break;
+        }
       }
+  
+      if (validInputs) {
+        var product = 1;
+  
+        // Calculate the product
+        for (var i = 0; i < numbersArray.length; i++) {
+          var number = parseInt(numbersArray[i]);
+          product *= number;
+        }
+  
+        // Display the ROI based on the product
+        if (product <= 500) {
+          var resultElement = document.getElementById("result");
+          resultElement.innerHTML =
+            "The ROI is 3x. <br> <br> Would a 3x ROI have a meaningful impact on your science?";
+        } else {
+          var resultElement = document.getElementById("result");
+          resultElement.innerHTML =
+            "The ROI is 5x. <br> <br> Would a 5x ROI have a meaningful impact on your science?";
+        }
+      } else {
+        alert("Please enter valid numbers separated by commas.");
+      }
+    } else {
+      // If the number of inputs doesn't match the selected nesting levels
+      alert("Please enter " + selectedOption + " numbers separated by commas.");
     }
+  } 
 
-    // Display the ROI based on the product
-    if (product <= 500) {
-      var resultElement = document.getElementById("result");
-      resultElement.innerHTML =
-        "The ROI is 3x. <br> <br> Would a 3x ROI have a meaningful impact on your science?";
-    } else if (product > 500) {
-      var resultElement = document.getElementById("result");
-      resultElement.innerHTML =
-        "The ROI is 5x. <br> <br> Would a 5x ROI have a meaningful impact on your science?";
+  function ClearOptions3() {
+    var radios1 = document.getElementsByName("answer");
+    var radios2 = document.getElementsByName("answer2");
+    var radios3 = document.getElementsByName("answer3");
+    var radios4 = document.getElementsByName("answer4");
+    var radios5 = document.getElementsByName("answer5");
+  
+    for (var i = 0; i < radios1.length; i++) {
+      radios1[i].checked = false;
     }
-  } else {
-    // If the number of inputs doesn't match the selected nesting levels
-    alert("Please enter the correct number of inputs.");
+  
+    for (var i = 0; i < radios2.length; i++) {
+      radios2[i].checked = false;
+    }
+  
+    for (var i = 0; i < radios3.length; i++) {
+      radios3[i].checked = false;
+    }
+  
+    for (var i = 0; i < radios4.length; i++) {
+      radios4[i].checked = false;
+    }
+  
+    for (var i = 0; i < radios5.length; i++) {
+      radios5[i].checked = false;
+    }
+  
+    var answer = document.querySelector('input[name="answer"]:checked');
+    var answer2 = document.querySelector('input[name="answer2"]:checked');
+  
+    document.getElementById("mySelect").value = "";
+    document.getElementById("question2").style.display = "none";
+    document.getElementById("message2").textContent = "";
+    document.getElementById("nums").value = "";
+    document.getElementById("result").innerHTML = "";
   }
-}
-    
+  
 
 
 
