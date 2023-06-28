@@ -1,17 +1,17 @@
-import HelpIcon from '@mui/icons-material/Help';
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
+import { Tooltip } from '@material-ui/core';
+import HelpIcon from '@mui/icons-material/Help';
 
-
-export default function ToolTip() {
+export default function CustomTooltip() {
+  
   return (
-    <div style={{margin: '100px'}}>
-    <Tooltip title="Zoom In">
-      <IconButton>
-      
-      </IconButton>
-    </Tooltip>
+    <div style={{ margin: '1px' }}>
+      <Tooltip title = "A really good explanantion of rate and Throughput">
+        <IconButton>
+          <HelpIcon />
+        </IconButton>
+      </Tooltip>
     </div>
   );
 }

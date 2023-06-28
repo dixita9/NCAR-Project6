@@ -4,6 +4,7 @@ import Hiking from './hiking';
 import Header2 from './header2';
 import StudentExercise2 from './StudentExercises2';
 import Page3 from './page3';
+
 import {Route, Routes, useNavigate} from 'react-router-dom';
 
 const Page2 = () => {
@@ -13,6 +14,10 @@ const Page2 = () => {
 
   function handleOnClick(event) {
     navigate('/page3');
+  }
+
+  function handleOnClick2(event) {
+    navigate('/');
   }
 
   return (
@@ -32,6 +37,11 @@ const Page2 = () => {
         <button type="button" onClick={handleOnClick} style={{ marginLeft: '40px' }}>
           Next Page
         </button>
+
+        <button type="button" onClick={handleOnClick2} style={{ marginLeft: '150px' }}>
+          Back
+        </button>
+
       </div>
     </div>
   );

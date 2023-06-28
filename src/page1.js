@@ -10,6 +10,7 @@ import StudentExercise1 from './StudentExercise1';
 
 
 
+
 const Page1 = () => {
   const completed = 33.33; // Set the initial completed value here
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Page1 = () => {
         <Routes>
           <Route path="/*" element={<StudentExercise1 />} />
           <Route path="/page2" element={<Page2 />} />
+
         </Routes>
 
         <button type="button" onClick={handleClick} style={{ marginLeft: '40px' }}>

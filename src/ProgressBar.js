@@ -17,13 +17,16 @@ const ProgressBar = (props) => {
     width: `${completed}%`,
     backgroundColor: bgcolor,
     borderRadius: 'inherit',
-    textAlign: 'right'
+    textAlign: 'right',
+    transition: 'width 1s ease-in-out'
+    
   }
 
   const labelStyles = {
     padding: 5,
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+   
   }
 
   return (
@@ -52,6 +55,7 @@ const MyPageComponent = () => {
     } 
 
     setProgress(progressPercentage);
+    
   };
 
   // Call the updateProgress function whenever the page changes

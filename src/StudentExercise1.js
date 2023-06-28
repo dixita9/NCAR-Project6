@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CustomTooltip from './ToolTip';
 
 
 const StudentExercise1 = () => {
@@ -123,7 +124,10 @@ const StudentExercise1 = () => {
                 No
               </label>
             </div><br></br>
-            <li>Do you have rate or throughput limitations?</li>
+            <li><div style={{ display: 'flex', alignItems: 'center' }}>
+                Do you have rate or throughput limitations?
+                <CustomTooltip />
+              </div></li> 
             <br></br>
             <div id="options2">
               <label>
@@ -145,7 +149,7 @@ const StudentExercise1 = () => {
                   onChange={handleInputChange}
                 />{' '}
                 Throughput
-              </label>
+              </label> 
               <br></br>
             </div>
           </ol>
