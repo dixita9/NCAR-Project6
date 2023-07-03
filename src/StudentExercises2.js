@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './Button';
 
 function StudentExercise2() {
   const [showOptions2, setShowOptions2] = useState(false);
@@ -236,18 +237,13 @@ function StudentExercise2() {
             <br />
           </ul>
         </ul>
-        <br />
-        <br />
-
-        <button onClick={handleCalculatePoints}>Submit</button>{""}
-        <button onClick={handleClearOptions} style={{ marginLeft: '40px' }}>
-          Clear
-        </button>
-        <br />
         <br /><br></br>
         <p>{PointResult}</p>
         <p id >{result}</p>
       </ol>
+      <Button text = "Submit" onClick = {handleCalculatePoints}  style={{ marginTop: "25px"}} />
+       
+      <Button text = "Clear" onClick = {handleClearOptions} style = {{ padding: "10px 28px"}}/>
     </div>
   );
 

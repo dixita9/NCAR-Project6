@@ -4,6 +4,7 @@ import Hiking from './hiking';
 import Header2 from './header2';
 import StudentExercise2 from './StudentExercises2';
 import Page3 from './page3';
+import Button from './Button';
 
 import {Route, Routes, useNavigate} from 'react-router-dom';
 
@@ -33,14 +34,14 @@ const Page2 = () => {
           <Route path="/*" element={<StudentExercise2 />} />
           <Route path="/page3" element={<Page3 />} />
         </Routes>
-
-        <button type="button" onClick={handleOnClick} style={{ marginLeft: '40px' }}>
+        <div style = {{marginLeft:"40px" , margin:"20px"}}>
+        <Button text=" Back " onClick={handleOnClick2} style = {{ padding: "10px 28px" , marginTop: "20px"}} />
+        <button type="button" onClick={handleOnClick} style={{ marginLeft: '40px', marginTop: "25px"}}>
           Next Page
         </button>
+        </div> 
 
-        <button type="button" onClick={handleOnClick2} style={{ marginLeft: '150px' }}>
-          Back
-        </button>
+        
 
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './Button';
 
 const StudentExercise3 = () => {
   const [selectedNumber, setSelectedNumber] = useState('');
@@ -74,6 +75,8 @@ const StudentExercise3 = () => {
     }
   };
 
+  
+
   const handleClear = () => {
     const radios1 = document.getElementsByName("answer");
     const radios2 = document.getElementsByName("answer2");
@@ -113,43 +116,56 @@ const StudentExercise3 = () => {
 
 
   return (
-    <div style={{ marginLeft: '40px' }}>
+    <div >
 
+      <div style={{ marginLeft: '40px' }}>
+        <p>How many levels of nesting are there?</p>
 
-      <p>How many levels of nesting are there?</p>
+        <select id="mySelect" value={selectedNumber} onChange={handleChange}>
+          <option disabled selected value="">
+            Choose a number
+          </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
 
-      <select id="mySelect" value={selectedNumber} onChange={handleChange}>
-        <option disabled selected value="">
-          Choose a number
-        </option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-
-      <br />
-
-      <div id="question2" style={{ display: 'none' }}>
-        <p id="message2">{message}</p>
-        <input
-          type="text"
-          id="nums"
-          placeholder="Enter Here"
-          value={inputValue}
-          onChange={(event) => setInputValue(event.target.value)}
-        />
         <br />
-        <br />
-        <button onClick={handleSubmit}>Submit</button>
-        <button onClick={handleClear} style={{ marginLeft: '40px' }}>Clear</button>
-        <p>What kind of Return on Investment (ROI) would you expect?</p>
+
+        <div id="question2" style={{ display: 'none' }}>
+          <p id="message2">{message}</p>
+          <input
+            type="text"
+            id="nums"
+            placeholder="Enter Here"
+            value={inputValue}
+            onChange={(event) => setInputValue(event.target.value)}
+          /> 
+        <div style = {{marginLeft:"-40px" , marginTop:"20px"}}> <br></br>
+          <Button text = "Submit" onClick = {handleSubmit} />
+
+        
+          <Button text = "Clear" onClick = {handleClear} style = {{ padding: "10px 28px"}}/>
+          
+        </div>
+          <br />
+          <br />
+        <p style = {{marginTop:"40px"}}>What kind of Return on Investment (ROI) would you expect?</p>
+        <p id="result" >{result}</p>
+        </div>
       </div>
+
+
+
+
+      
+      
 
       {/*<p>What kind of Return on Investment (ROI) would you expect?</p>*/}
 
-      <p id="result">{result}</p>
+      
     </div>
   );
 };

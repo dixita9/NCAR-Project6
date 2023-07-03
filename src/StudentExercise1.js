@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CustomTooltip from './ToolTip';
+import Button from './Button';
 
 
 const StudentExercise1 = () => {
@@ -59,9 +60,8 @@ const StudentExercise1 = () => {
 
 
 
-  
-
-  const clearOptions = () => {
+  const clearOptions = (e) => {
+    e.preventDefault();
     setAnswer('');
     setAnswer2('');
     setDivisionResult("");
@@ -94,7 +94,8 @@ const StudentExercise1 = () => {
         />
         <br />
         <br />
-        <button onClick={handleCalculation}>Calculate</button>
+       
+        <Button text = "Calculate" onClick={handleCalculation} style={{ marginLeft: '10px' }} />
         <p>Number of grid-points per &#123;node, GPU&#125;: {divisionResult}</p>
       </ol>
     </div>
@@ -155,10 +156,13 @@ const StudentExercise1 = () => {
           </ol>
         </div><br></br>
 
-        <button type="submit" style={{ marginLeft: '40px' }}>Submit</button> 
-        <button type="button" style={{ marginLeft: '100px' }} onClick={clearOptions}>
+       
+        <Button text="Submit"/>
+        <Button text = "Clear" onClick = {clearOptions} />
+       
+        {/*<button type="button" style={{ marginLeft: '100px' }} onClick={clearOptions}>
           Clear
-        </button>
+  </button>*/}
       </form><br></br>
       {showAnswers && (
         <div style={{ marginLeft: '40px' }}>
