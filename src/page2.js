@@ -18,7 +18,7 @@ const Page2 = () => {
   }
 
   function handleOnClick2(event) {
-    navigate('/');
+    navigate('/page1');
   }
 
   return (

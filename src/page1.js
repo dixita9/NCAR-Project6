@@ -5,11 +5,7 @@ import Hiking from './hiking';
 import Header from './header';
 import Page2 from './page2';
 import StudentExercise1 from './StudentExercise1';
-
-
-
-
-
+import Button from './Button';
 
 const Page1 = () => {
   const completed = 33.33; // Set the initial completed value here
@@ -17,6 +13,10 @@ const Page1 = () => {
 
   function handleClick(event) {
     navigate('/page2');
+  }
+
+  function handleOnClick2(event) {
+    navigate('/');
   }
 
   return (
@@ -37,6 +37,7 @@ const Page1 = () => {
         <button type="button" onClick={handleClick} style={{ marginLeft: '40px' }}>
           Next Page
         </button>
+        <Button text=" Back " onClick={handleOnClick2} style = {{ padding: "10px 28px" , marginTop: "20px"}} />
     
       </div>
     </div>

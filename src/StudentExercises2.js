@@ -62,7 +62,8 @@ function StudentExercise2() {
       allOptionsSelected = false; // Set the flag to false if any option is not selected
     }
 
-    setPointResult(`Total Points: ${newTotalPoints}`)
+    setPointResult("Total Points" , newTotalPoints)
+    localStorage.setItem("TotalPoints", newTotalPoints);
 
     if (0 < newTotalPoints && newTotalPoints <= 10) {
       setResult("Easy Peezy! It is going to be very easy to make your application GPU enabled.");

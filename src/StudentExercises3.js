@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import {Route, Routes, useNavigate} from 'react-router-dom';
 import Button from './Button';
+
 
 const StudentExercise3 = () => {
   const [selectedNumber, setSelectedNumber] = useState('');
   const [inputValue, setInputValue] = useState('');
   const [message, setMessage] = useState('');
   const [result, setResult] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const selectedOption = event.target.value;
@@ -48,6 +51,8 @@ const StudentExercise3 = () => {
           product *= number;
         }
 
+        localStorage.setItem('product', product);
+
         if (product <= 500) {
           setResult(
             <p>
@@ -55,6 +60,7 @@ const StudentExercise3 = () => {
               Would a 3x ROI have a meaningful impact on your science?
             </p>
           );
+          localStorage.setItem('result', '3x');
         } else {
           setResult(
             <p>
@@ -62,6 +68,7 @@ const StudentExercise3 = () => {
               Would a 5x ROI have a meaningful impact on your science?
             </p>
           );
+          localStorage.setItem('result', '5x');
         }
       } else {
         alert("Please enter valid numbers separated by commas.");
@@ -112,6 +119,9 @@ const StudentExercise3 = () => {
 
 };
 
+function handleOnClick3(event) {
+  navigate('/page4');
+}
 
 
 
@@ -155,6 +165,7 @@ const StudentExercise3 = () => {
         <p style = {{marginTop:"40px"}}>What kind of Return on Investment (ROI) would you expect?</p>
         <p id="result" >{result}</p>
         </div>
+        <Button text = "Get Results" onClick = {handleOnClick3} style = {{ padding: "10px 28px"}}/>
       </div>
 
 

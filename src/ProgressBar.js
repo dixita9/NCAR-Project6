@@ -47,10 +47,14 @@ const MyPageComponent = () => {
     // Logic to determine the progress percentage based on the current page
     let progressPercentage = 0;
     if (currentPage === '') {
-      progressPercentage = 33.33;
-    } else if (currentPage === 'page2') {
-      progressPercentage = 66.66;
+      progressPercentage = 0;
+    } else if (currentPage === 'page1') {
+      progressPercentage = 25;
+    }else if (currentPage === 'page2') {
+        progressPercentage = 50;
     } else if (currentPage === 'page3') {
+      progressPercentage = 75;
+    } else if (currentPage === 'page4') {
       progressPercentage = 100;
     } 
 
