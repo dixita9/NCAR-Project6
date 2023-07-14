@@ -1,5 +1,5 @@
 import React from 'react';
-
+//Button component begins here
 const Button = ({ text, onClick, style}) => {
   const buttonStyle = {
     backgroundColor: '#36545d', /* Set your desired background color */

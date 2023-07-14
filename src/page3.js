@@ -1,44 +1,44 @@
+// Import required modules from 'react' and 'react-router-dom'
 import React from 'react';
+import {Route, Routes, useNavigate} from 'react-router-dom';
+// Import custom components
 import ProgressBar from './ProgressBar';
 import Hiking from './hiking';
-import Header3 from './Header3';
 import StudentExercise3 from './StudentExercises3';
-import {Route, Routes, useNavigate} from 'react-router-dom';
-import Button from './Button';
 
+import Button from './Button';
+import Header from './header';
+
+//Page 3 Component
 const Page3 = () => {
-  const completed = 33.33;
-  const navigate = useNavigate();
+  const completed = 0; // Progress percentage
+
+  const navigate = useNavigate(); // React Router hook for navigation
 
   function handleOnClick(event) {
-    navigate('/page2');
+    navigate('/page2'); // Navigate to '/page2' when the button is clicked
   }
 
   function handleOnClick2(event) {
-    navigate('/');
+    navigate('/'); // Navigate to the home page when the button is clicked
   }
+
   return (
     <div className="container">
       <div className="background-image">
-        <Hiking />
+        <Hiking /> {/* Render the Hiking component */}
       </div>
       <div className="content">
-        <Header3 />
-        <ProgressBar bgcolor="#36545d" completed={completed} />
-        <StudentExercise3 /> <br></br>
+        <Header title="STUDENT EXERCISE 3" subtitle="5 MINUTES" /> {/* Render the Header component with title and subtitle */}
+        <ProgressBar bgcolor="#36545d" completed={completed} /> {/* Render the ProgressBar component with background color and progress percentage */}
+        <StudentExercise3 /> {/* Render the StudentExercise3 component */}
+        <br></br>
 
-      {/*<button type="button" onClick={handleOnClick} style={{ marginLeft: '40px' }}>
-      Back
-      </button>
-      <button type="button" onClick={handleOnClick2} style={{ marginLeft: '100px' }}>
-      Back to Home
-  </button> */}
-
-    <Button text = "Back" onClick={handleOnClick} style = {{ padding: "10px 28px" , marginTop: "20px"}} />
-    <Button text = "Home" onClick={handleOnClick2} style = {{ padding: "10px 28px" , marginTop: "20px"}}/>
+        {/* Alternative implementation using custom Button component */}
+        <Button text="Back" onClick={handleOnClick} style={{ padding: "10px 28px", marginTop: "20px" }} /> {/* Render a button with 'Back' text, handleOnClick event handler, and custom styling */}
+        <Button text="Home" onClick={handleOnClick2} style={{ padding: "10px 28px", marginTop: "20px" }} /> {/* Render a button with 'Home' text, handleOnClick2 event handler, and custom styling */}
 
       </div>
-      
     </div>
   );
 };
