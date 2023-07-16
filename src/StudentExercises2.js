@@ -239,8 +239,7 @@ function StudentExercise2() {
           </ul>
         </ul>
         <br /><br></br>
-        <p>{PointResult}</p>
-        <p id >{result}</p>
+
       </ol>
       <Button text = "Submit" onClick = {handleCalculatePoints}  style={{ marginTop: "25px"}} />
        

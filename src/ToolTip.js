@@ -1,13 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import { Tooltip } from '@material-ui/core';
 import HelpIcon from '@mui/icons-material/Help';
 
-export default function CustomTooltip() {
-  
+export default function CustomTooltip({ title, placement = 'top' }) {
   return (
     <div style={{ margin: '1px' }}>
-      <Tooltip title = "A really good explanantion of rate and Throughput">
+      <Tooltip title={title} placement={placement}>
         <IconButton>
           <HelpIcon />
         </IconButton>
@@ -15,4 +14,3 @@ export default function CustomTooltip() {
     </div>
   );
 }
-

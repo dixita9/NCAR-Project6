@@ -1,16 +1,20 @@
+// Import required modules from 'react' and 'react-router-dom'
 import React from 'react';
-import {Route, Routes, useNavigate} from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+
+// Import custom components
 import ProgressBar from './ProgressBar';
 import Hiking from './hiking';
-import Header4 from './header4';
 import Page1 from './page1';
 import StudentExercise0 from './StudentExercise0';
+import Header from './header';
 
-
+// Page0 component
 const Page0 = () => {
-  const completed = 33.33; // Set the initial completed value here
-  const navigate = useNavigate();
+  const completed = 0; // Set the initial completed value here
+  const navigate = useNavigate(); 
 
+  // Function to handle button click and navigate to page1
   function handleClick(event) {
     navigate('/page1');
   }
@@ -21,19 +25,24 @@ const Page0 = () => {
         <Hiking />
       </div>
       <div className="content">
-        <Header4 />
+        {/* Header component */}
+        <Header title="STUDENT EXERCISE 0" subtitle="5 MINUTES" />
+
+        {/* Progress bar component */}
         <ProgressBar bgcolor="#36545d" completed={completed} />
 
         <Routes>
+          {/* Route for StudentExercise0 */}
           <Route path="/*" element={<StudentExercise0 />} />
-          <Route path="/page1" element={<Page1 />} />
 
+          {/* Route for Page1 */}
+          <Route path="/page1" element={<Page1 />} />
         </Routes>
 
+        {/* Next page button */}
         <button type="button" onClick={handleClick} style={{ marginLeft: '40px' }}>
           Next Page
         </button>
-    
       </div>
     </div>
   );

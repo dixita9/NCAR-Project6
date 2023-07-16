@@ -9,6 +9,8 @@ const Summary = () => {
   const Product = localStorage.getItem('product');
   const Result = localStorage.getItem('result');
   const resultMessage = localStorage.getItem("resultMessage")
+  const resultMessage2 = localStorage.getItem("resultMessage2")
+  const iofreq = localStorage.getItem("iofreq")
 
 
 
@@ -23,7 +25,10 @@ const Summary = () => {
       {TotalPoints && <p> Total Points: {TotalPoints}</p>} 
       {Product && <p> Product: {Product}</p>} 
       {Result && <p> ROI: {Result}</p>} 
+      {iofreq && <p>iofreq: {iofreq}</p>}
       {resultMessage && <p> Page 0 result: <br></br>{resultMessage}</p>}
+      {resultMessage2 && <p> Page 1 result: <br></br>{resultMessage2}</p>}
+     
 
     </div>
   );
