@@ -254,3 +254,33 @@ if (
           num += 1
           result += "\n"+ num + ". " + string4
         } */}
+
+        if (product <= 500) {
+          setResult(
+            <p>
+              The ROI is 3x. <br /><br />
+              Would a 3x ROI have a meaningful impact on your science?
+            </p>
+          );
+          localStorage.setItem('result', '3x');
+        } else {
+          setResult(
+            <p>
+              The ROI is 5x. <br /><br />
+              Would a 5x ROI have a meaningful impact on your science?
+            </p>
+          );
+          localStorage.setItem('result', '5x');
+          
+        }
+
+
+        if (0 < newTotalPoints && newTotalPoints <= 10) {
+          setResult("Easy Peezy! It is going to be very easy to make your application GPU enabled.");
+        } else if (10 < newTotalPoints && newTotalPoints <= 15) {
+          setResult("Not too hard! It is going to take some work to make your application GPU enabled.");
+        } else if (15 < newTotalPoints && newTotalPoints <= 25) {
+          setResult("Difficult! It is going to be very hard to make your application GPU enabled.");
+        } else {
+          setResult("");
+        }
