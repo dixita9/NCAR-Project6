@@ -12,7 +12,7 @@ const ProgressBar = (props) => {
     width: '80%',
     backgroundColor: "#e0e0de",
     borderRadius: 50,
-    margin: 50
+    margin: '50px auto'
   }
 
   // Styles for the progress filler

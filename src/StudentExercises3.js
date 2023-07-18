@@ -157,6 +157,13 @@ const StudentExercise3 = () => {
 
 };
 
+function handleOnClick3(event) {
+  navigate('/page4');
+};
+
+
+
+
 
 
 

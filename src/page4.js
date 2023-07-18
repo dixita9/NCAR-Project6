@@ -7,6 +7,7 @@ import {Route, Routes, useNavigate} from 'react-router-dom';
 import Button from './Button';
 import Summary from './summary';
 import Header from './header';
+import CustomContainer from './Container';
 
 // Page 4  Component
 const Page4 = () => {
@@ -27,9 +28,12 @@ const Page4 = () => {
             </div>*/}
 
             <div className="content">
+                
                 <Header title="Summary Page" subtitle="These are your results" />
                 <ProgressBar bgcolor="#36545d" completed={completed} /> {/* Progress bar component */}
-                <Summary /> {/* Summary component */}
+                <CustomContainer> <Summary /> {/* Summary component */} </CustomContainer>
+                
+                
                 <Button
                     text="Home"
                     onClick={handleOnClick2}
