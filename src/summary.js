@@ -10,6 +10,8 @@ const Summary = () => {
   const Result = localStorage.getItem('result');
   const resultMessage = localStorage.getItem("resultMessage")
   const resultMessage2 = localStorage.getItem("resultMessage2")
+  const resultMessage3 = localStorage.getItem("resultMessage3")
+  const resultMessage4 = localStorage.getItem("resultMessage4")
   const iofreq = localStorage.getItem("iofreq")
 
 
@@ -18,16 +20,18 @@ const Summary = () => {
 
   return (
     <div style={{marginLeft : "40px", whiteSpace: 'pre-line' }}>
-      {divisionResult && <p>Division Result: {divisionResult}</p>}
+      {/*{divisionResult && <p>Division Result: {divisionResult}</p>}
       {IOfrequency && <p> IOfrequency: {IOfrequency}</p>}
       {IOVolume && <p> IOVolume: {IOVolume}</p>}
       {RateThroughput && <p> Rate/Throughput: {RateThroughput}</p>}
       {TotalPoints && <p> Total Points: {TotalPoints}</p>} 
       {Product && <p> Product: {Product}</p>} 
       {Result && <p> ROI: {Result}</p>} 
-      {iofreq && <p>iofreq: {iofreq}</p>}
-      {resultMessage && <p> Page 0 result: <br></br>{resultMessage}</p>}
+      {iofreq && <p>iofreq: {iofreq}</p>}*/}
+      {resultMessage && <p>  Page 0 result: <br></br>{resultMessage}</p>}
       {resultMessage2 && <p> Page 1 result: <br></br>{resultMessage2}</p>}
+      {resultMessage3 && <p> Page 2 result: <br></br>{resultMessage3}</p>}
+      {resultMessage4 && <p> Page 3 result: <br></br>{resultMessage4}</p>}
      
 
     </div>
