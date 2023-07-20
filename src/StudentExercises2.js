@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import {Route, Routes, useNavigate} from 'react-router-dom';
 import Button from './Button';
+import CustomBox from './Box';
 
 function StudentExercise2() {
    // State variables
@@ -175,6 +176,11 @@ function StudentExercise2() {
     setResultMessage3 ("");
   };
 
+  function handleOnClick2(event) {
+    navigate('/page1'); // Navigate to '/page1' when the button is clicked
+  };
+
+
 
 //This function hides the second question and calls the clearOptions function. 
   const handleClearOptions = () => {
@@ -183,7 +189,9 @@ function StudentExercise2() {
   };
 
   return (
-    <div style={{ marginLeft: '20px' }}>
+    <div >
+      <div>
+      <CustomBox>
       <ol>
         {/*Question 1 */}
         <li>Does a GPU version of your code already exist?</li>
@@ -197,7 +205,7 @@ function StudentExercise2() {
             checked={answer === 'yes'}
             onChange={(e) => setAnswer(e.target.value)}
           />{' '}
-          Yes [0 points]
+          Yes 
         </label>
         <label>
           <input
@@ -208,7 +216,7 @@ function StudentExercise2() {
             checked={answer === 'no'}
             onChange={(e) => setAnswer(e.target.value)}
           />{' '}
-          No [4 points]
+          No 
         </label>
         <br />
 
@@ -225,7 +233,7 @@ function StudentExercise2() {
                 checked={answer2 === 'yes'}
                 onChange={(e) => setAnswer2(e.target.value)}
               />{' '}
-              Yes [1 point]
+              Yes 
             </label>
             <label>
               <input
@@ -235,7 +243,7 @@ function StudentExercise2() {
                 checked={answer2 === 'no'}
                 onChange={(e) => setAnswer2(e.target.value)}
               />{' '}
-              No [3 points]
+              No 
             </label>
             <br />
           </div>
@@ -257,7 +265,7 @@ function StudentExercise2() {
                 checked={answer3 === 'yes'}
                 onChange={(e) => setAnswer3(e.target.value)}
               />{' '}
-              Yes [1 point]
+              Yes 
             </label>
             <label>
               <input
@@ -267,7 +275,7 @@ function StudentExercise2() {
                 checked={answer3 === 'no'}
                 onChange={(e) => setAnswer3(e.target.value)}
               />{' '}
-              No [7 points]
+              No 
             </label>
           </ul>
           <br />
@@ -283,7 +291,7 @@ function StudentExercise2() {
                 checked={answer4 === 'yes'}
                 onChange={(e) => setAnswer4(e.target.value)}
               />{' '}
-              Yes [1 point]
+              Yes 
             </label>
             <label>
               <input
@@ -293,7 +301,7 @@ function StudentExercise2() {
                 checked={answer4 === 'no'}
                 onChange={(e) => setAnswer4(e.target.value)}
               />{' '}
-              No [7 points]
+              No 
             </label>
           </ul>
           <br />
@@ -309,7 +317,7 @@ function StudentExercise2() {
                 checked={answer5 === 'yes'}
                 onChange={(e) => setAnswer5(e.target.value)}
               />{' '}
-              Yes [1 point]
+              Yes 
             </label>
             <label>
               <input
@@ -319,7 +327,7 @@ function StudentExercise2() {
                 checked={answer5 === 'no'}
                 onChange={(e) => setAnswer5(e.target.value)}
               />{' '}
-              No [7 points]
+              No 
             </label>
             <br />
           </ul>
@@ -327,11 +335,16 @@ function StudentExercise2() {
         <br /><br></br>
 
       </ol>
+      </CustomBox>
       {/*Submit Button*/}
-      <Button text = "Submit" onClick = {handleCalculatePoints}  style={{ marginTop: "25px"}} />
 
-      {/*Clear Button*/}
-      <Button text = "Clear" onClick = {handleClearOptions} style = {{ padding: "10px 28px"}}/>
+      </div>
+      
+      <div style = {{marginLeft: "253.5px"}}>
+      <Button text = "Back" onClick = {handleOnClick2}></Button>
+      <Button text = "Clear" onClick = {handleClearOptions} style ={{ marginLeft : "10px" , marginRight:"10px"}}/>
+      <Button text = "Next" onClick = {handleCalculatePoints}  />
+      </div>
     </div>
   );
 
