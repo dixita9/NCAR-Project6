@@ -91,6 +91,7 @@ const StudentExercise3 = () => {
 
         //This line stores "product" variable in local storage so it can be retrieved and displayed in the summary page. 
         localStorage.setItem('product', product);
+        
 
         //working set size (wss) is calculated by multiplying "product", "numVar" and "wordSize"
         let wss = product * parseInt(numVar) * parseInt(wordSize)
@@ -100,13 +101,13 @@ const StudentExercise3 = () => {
 
         //string1 and string2 are concatenated at the start of the "result" string
         const string1 = "Next let us discuss both the return on the investment (ROI) converting your computational infrastructure to GPU-based computing and the difficulty with achieving this ROI."
-        const string2 = `\t1. Let's first talk about Return on Investment.  You indicated that the extent of loop bodies is approximately ${product}.  You also indicated that a common loop body contains ${numVar}, ${wordSize} bytes variables. This suggests that inner loops access ${wss} bytes of variables.`
+        const string2 = `\t1. Let's first talk about Return on Investment.  You indicated that the extent of loop \n\t\    bodies is approximately ${product}. You also indicated that a common loop body contains \n\t    ${numVar}, ${wordSize} bytes variables. This suggests that inner loops access ${wss} bytes of variables.`
 
         //wws1 is concatenated the to "result" string if the value of "wss" is greater than 75
-        const wss1 = `a. Because  ${wss} wss is significantly larger than the typical last level cache size. Your problem should achieve a ROI of approximately 3 to 4 due to the differences in main memory bandwidth between CPU and GPU. Would a reduction in the time to perform your science of 3 to 4 have a significant impact on your ability to perform your science?`
+        const wss1 = `a. Because  ${wss} wss is significantly larger than the typical last level cache size. \n\t\t    Your problem should achieve a ROI of approximately 3 to 4 due to the \n\t\t    differences in main memory bandwidth between CPU and GPU. Would a \n\t\t    reduction in the time to perform your science of 3 to 4 have a significant \n\t\t    impact on your ability to perform your science?`
 
         //wws1 is concatenated the to "result" string if the value of "wss" is less than 75
-        const wss2 = `a. Because ${wss} wss is significantly smaller than the typical last level cache size.  Your code is likely already running pretty efficiently on a CPU-based platform. GPU-enablement will yield a very modest ROI. `
+        const wss2 = `a. Because ${wss} wss is significantly smaller than the typical last level cache size. \n\t\t    Your code is likely already running pretty efficiently on a CPU-based platform. \n\t\t    GPU-enablement will yield a very modest ROI. `
 
         result = string1 + "\n" + string2 //string1 and string2 are concatentaed the "result" string
 
@@ -287,7 +288,7 @@ useEffect(() => {
             
           </div> <br></br><br></br>
           {/*Get Results Button - Takes the user to the summary page*/}
-          <Button text = "Get Results" onClick = {handleOnClick3} style = {{ padding: "10px 28px"}}/>
+          {/*<Button text = "Get Results" onClick = {handleOnClick3} style = {{ padding: "10px 28px"}}/>*/}
           
       </div>
 
