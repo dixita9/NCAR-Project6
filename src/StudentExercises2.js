@@ -1,5 +1,5 @@
 // Importing necessary dependencies and components
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import {Route, Routes, useNavigate} from 'react-router-dom';
 import Button from './Button';
 import CustomBox from './Box';
@@ -16,11 +16,13 @@ function StudentExercise2() {
   const [answer5, setAnswer5] = useState('');
   const [resultMessage3, setResultMessage3] = useState('');
   const navigate = useNavigate();
+  const smallBrStyle = { marginBottom: '0.2em' }; 
 
    // Function to show the second part of question 1 when user selects "yes"
   const handleShowAdditionalQues = (event) => {
     const selectedValue = event.target.value;
     setShowOptions2(selectedValue === 'yes');
+    localStorage.setItem('showOptions2', selectedValue === 'yes' ? 'true' : 'false');
   };
 
   // Function to caculate points
@@ -80,10 +82,10 @@ function StudentExercise2() {
     result2 += start // "start"  string is concatenated at the beginning of the "result2" string
 
     //Below string is concatenated to "result2" string if "newTotalPoints" is greater less than 25
-    const string1 = "Based on your answers, it appears that your code is ready to start the process of GPU-enablement.  Let us try and figure out how much work it might take."
+    const string1 = "Based on your answers, it appears that your code is ready to start the process of GPU-enablement. Let us try and figure out how much work it might take."
 
     //Below string is concatenated to the "result2" string if the user answers "yes" to question 1
-    const ques1yes = "It is great news that a version of your application has already been GPU-enabled.  This considerably reduces the difficulty." 
+    const ques1yes = "It is great news that a version of your application has already been GPU-enabled. This considerably reduces the difficulty." 
     
     //Below string is concatenated to the "result2" string if the user answers "no" to question 1
     const ques1no = "It looks like your science objective is not currently GPU-enabled. Based on your answers we can estimate effort to achieve GPU-enablement."
@@ -95,16 +97,10 @@ function StudentExercise2() {
     const ques2no = "Unfortunately  not all of the code necessary for your science objective is GPU-enabled.  The amount of work necessary to GPU-enable your science objective"
 
     //Below string is concatenated to the "result2" string if the user answers "yes" to question 3
-    const ques3yes = `It appears that the number of grid points per GPU or node [numGP] is approximately equal to the number of iterations in loop bodies [numIter].  This greatly simplifies GPU-enablement because all the parallelism is exposed in one place.  Congratulations, it appears that your code is GPU-ready. \n i. The next step is to decide on the programming approach to achieve GPU-enablement. Several programming options are available including: \n
-    a. Language based approaches using C++ productivity frameworks \n
-    b. Writing in an explicitly GPU based language like CUDA, CUDA Fortran or HIP\n
-    c. Directive based approaches \n
-    ii.The choice of programming language approach is based on your goals \n
-    a. Do you want to maintain portability across multiple compute platforms → productivity framework or directive based approach \n
-    b. Not concerned about portability → consider explicitly GPU based languages \n
+    const ques3yes = `It appears that the number of grid points per GPU or node [numGP] is approximately equal to the number of iterations in loop bodies [numIter]. This greatly simplifies GPU-enablement because all the parallelism is exposed in one place. Congratulations, it appears that your code is GPU-ready.\n\t\t i. The next step is to decide on the programming approach to achieve GPU-enablement. Several programming options are available including: \n\t\t\ta. Language based approaches using C++ productivity frameworks \n\t\t\tb. Writing in an explicitly GPU based language like CUDA, CUDA Fortran or HIP\n\t\t\tc. Directive based approaches \n\t\tii.The choice of programming language approach is based on your goals\n\t\t\ta. Do you want to maintain portability across multiple compute platforms → productivity framework or directive based approach \n\t\t\tb. Not concerned about portability → consider explicitly GPU based languages \n
     `
     //Below string is concatenated to the "result2" string if the user answers "yes" to question 3
-    const ques3no = "Because the total number of grid points per GPU or node [numGP] is significantly larger than the number of iterations [numiter] this looks like some code transformation is necessary.  Unfortunately this is quite common and can take a significant amount of effort to adequately expose the parallelism necessary"
+    const ques3no = "Because the total number of grid points per GPU or node [numGP] is significantly larger than the number of iterations [numiter] this looks like some code transformation is necessary. Unfortunately this is quite common and can take a significant amount of effort to adequately expose the parallelism necessary"
 
 
     if (newTotalPoints < 25){
@@ -114,31 +110,31 @@ function StudentExercise2() {
     if(answer == "yes"){
       //if first answer is "yes", num is incrementated and concatenated to the "result2" string along with "ques1yes" string
       num += 1
-      result2 += "\n"+ num + ". " + ques1yes
+      result2 += "\n\t"+ num + ". " + ques1yes
     }else{
        //if first answer is "no", num is incrementated and concatenated to the "result2" string along with "ques1no" string
       num += 1
-      result2 += "\n"+ num + ". " + ques1no
+      result2 += "\n\t"+ num + ". " + ques1no
     }
 
     if(answer2 == "yes"){
        //if second answer is "yes" num is incrementated and concatenated to the "result2" string along with "ques2yes" string
       num += 1
-      result2 += "\n"+ num + ". " + ques2yes
+      result2 += "\n\t"+ num + ". " + ques2yes
     }else{
        //if second answer is "no" num is incrementated and concatenated to the "result2" string along with "ques2no" string
       num += 1
-      result2 += "\n"+ num + ". " + ques2no
+      result2 += "\n\t"+ num + ". " + ques2no
     }
 
     if(answer3 == "yes"){
        //if third answer is "yes" num is incrementated and concatenated to the "result2" string along with "ques3yes" string
       num += 1
-      result2 += "\n"+ num + ". " + ques3yes
+      result2 += "\n\t"+ num + ". " + ques3yes
     }else{
        //if third answer is "no" num is incrementated and concatenated to the "result2" string along with "ques3no" string
       num += 1
-      result2 += "\n"+ num + ". " +  ques3no
+      result2 += "\n\t"+ num + ". " +  ques3no
     }
 
     setResultMessage3 (result2);//This statement assigns "result2" variable to the "ResultMessage3" variable
@@ -162,7 +158,14 @@ function StudentExercise2() {
 
   const handleCalculatePoints = () => {
     calculatePoints(); // Call calculatePoints 
+    localStorage.setItem('answer', answer);
+    localStorage.setItem('answer2', answer2);
+    localStorage.setItem('answer3', answer3);
+    localStorage.setItem('answer4', answer4);
+    localStorage.setItem('answer5', answer5);
   };
+
+  
 
   // Function to clear options and reset the form
   const clearOptions = () => {
@@ -178,6 +181,7 @@ function StudentExercise2() {
 
   function handleOnClick2(event) {
     navigate('/page1'); // Navigate to '/page1' when the button is clicked
+    
   };
 
 
@@ -188,14 +192,36 @@ function StudentExercise2() {
     clearOptions();
   };
 
+  useEffect(() => {
+    const storedShowOptions2 = localStorage.getItem('showOptions2');
+    if (storedShowOptions2) {
+    setShowOptions2(storedShowOptions2 === 'true');
+    }
+    const storedAnswer = localStorage.getItem('answer');
+    if (storedAnswer) setAnswer(storedAnswer);
+
+    const storedAnswer2 = localStorage.getItem('answer2');
+    if (storedAnswer2) setAnswer2(storedAnswer2);
+
+    const storedAnswer3 = localStorage.getItem('answer3');
+    if (storedAnswer3) setAnswer3(storedAnswer3);
+
+    const storedAnswer4 = localStorage.getItem('answer4');
+    if (storedAnswer4) setAnswer4(storedAnswer4);
+
+    const storedAnswer5 = localStorage.getItem('answer5');
+    if (storedAnswer5) setAnswer5(storedAnswer5);
+  }, []);
+
   return (
     <div >
       <div>
-      <CustomBox>
+      <CustomBox >
       <ol>
         {/*Question 1 */}
+        <div style = {{marginBottom: "18px"}}>
         <li>Does a GPU version of your code already exist?</li>
-        <br />
+        </div>
         <label>
           <input
             type="radio"
@@ -207,7 +233,7 @@ function StudentExercise2() {
           />{' '}
           Yes 
         </label>
-        <label>
+        <label style = {{marginLeft: "60px"}}>
           <input
             type="radio"
             name="answer"
@@ -218,13 +244,14 @@ function StudentExercise2() {
           />{' '}
           No 
         </label>
-        <br />
+      
 
         {showOptions2 && (
           <div id="options2">
+            <div style = {{marginBottom: "18px", marginTop: "20px"}} >
             {/*Question 1a - shown when user choses "yes" for question 1*/}
             <li>Are the desired physics packaged GPU-enabled?</li>
-            <br />
+            </div>
             <label>
               <input
                 type="radio"
@@ -235,7 +262,7 @@ function StudentExercise2() {
               />{' '}
               Yes 
             </label>
-            <label>
+            <label style = {{marginLeft: "60px"}}>
               <input
                 type="radio"
                 name="answer2"
@@ -245,18 +272,18 @@ function StudentExercise2() {
               />{' '}
               No 
             </label>
-            <br />
           </div>
         )}
-        <br />
+        <div style = {{marginBottom: "18px", marginTop: "20px"}}>
           {/*Question 2 */}
         <li>Is the code written in such a way that it is GPU-ready?</li>
-        <br />
-        <ul>
+        </div>
+        <ol start = "a.">
           {/*Question 2a */}
+          <div style = {{marginBottom: "18px", marginTop: "20px"}}>
           <li>Is full parallelism available at the loop level?</li>
-          <br />
-          <ul>
+          </div>
+          
             <label>
               <input
                 type="radio"
@@ -267,7 +294,7 @@ function StudentExercise2() {
               />{' '}
               Yes 
             </label>
-            <label>
+            <label style = {{marginLeft: "60px"}}>
               <input
                 type="radio"
                 name="answer3"
@@ -277,12 +304,12 @@ function StudentExercise2() {
               />{' '}
               No 
             </label>
-          </ul>
-          <br />
+        
+          <div style = {{marginBottom: "18px", marginTop: "20px"}}>
           {/*Question 2b */}
           <li>Does a threaded version of the code exist?</li>
-          <br />
-          <ul>
+          </div>
+          
             <label>
               <input
                 type="radio"
@@ -293,7 +320,7 @@ function StudentExercise2() {
               />{' '}
               Yes 
             </label>
-            <label>
+            <label style = {{marginLeft: "60px"}}>
               <input
                 type="radio"
                 name="answer4"
@@ -303,12 +330,12 @@ function StudentExercise2() {
               />{' '}
               No 
             </label>
-          </ul>
-          <br />
+        
+          <div style = {{marginBottom: "18px", marginTop: "20px"}}>
           {/*Question 2c */}
           <li>Does the code have some form of verification?</li>
-          <br />
-          <ul>
+          </div>
+          
             <label>
               <input
                 type="radio"
@@ -319,7 +346,7 @@ function StudentExercise2() {
               />{' '}
               Yes 
             </label>
-            <label>
+            <label style = {{marginLeft: "60px"}}>
               <input
                 type="radio"
                 name="answer5"
@@ -330,9 +357,9 @@ function StudentExercise2() {
               No 
             </label>
             <br />
-          </ul>
-        </ul>
-        <br /><br></br>
+      
+        </ol>
+       
 
       </ol>
       </CustomBox>

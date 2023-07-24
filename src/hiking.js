@@ -1,16 +1,19 @@
 import React from 'react';
-import hiking from './image/hiking.jpg';
+
+import Second_Of_Five from './image/hiking.jpg';
 
 const Hiking = () => {
   const containerStyle = {
-    background: `url(${hiking})`,
+    background: `url(${Second_Of_Five})`,
     backgroundSize: 'cover',
     backgroundPosition: 'right',
     backgroundRepeat: 'no-repeat',
     position: 'relative', // Add relative positioning to the container
     zIndex: -1, // Set a negative z-index to move the container behind other components
-    width: "937.5px",
-    height: '625px', // Set the desired height for the background image container
+    width: "750px",
+    height: '500px', // Set the desired height for the background image container
+    
+
   };
 
   return (

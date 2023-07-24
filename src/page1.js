@@ -9,6 +9,7 @@ import Header from './header';
 import Page2 from './page2';
 import StudentExercise1 from './StudentExercise1';
 import Button from './Button';
+import CustomBox from './Box';
 
 // Page 1 Component
 const Page1 = () => {
@@ -19,9 +20,7 @@ const Page1 = () => {
     navigate('/page2'); // Function to navigate to page2
   }
 
-  function handleOnClick2(event) {
-    navigate('/'); // Function to navigate back to the home page
-  }
+
 
   return (
     <div className="container">
@@ -44,7 +43,7 @@ const Page1 = () => {
         </button>
         
         {/* Button to navigate back to the home page */}
-        <Button text=" Back " onClick={handleOnClick2} style={{ padding: "10px 28px", marginTop: "20px" }} />
+        
       </div>
     </div>
   );

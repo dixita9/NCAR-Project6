@@ -8,6 +8,7 @@ import Hiking from './hiking';
 import Page1 from './page1';
 import StudentExercise0 from './StudentExercise0';
 import Header from './header';
+import CustomContainer from './Container';
 
 // Page0 component
 const Page0 = () => {

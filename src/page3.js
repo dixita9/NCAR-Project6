@@ -8,6 +8,7 @@ import StudentExercise3 from './StudentExercises3';
 
 import Button from './Button';
 import Header from './header';
+import { Box } from '@mui/material';
 
 //Page 3 Component
 const Page3 = () => {
@@ -15,9 +16,7 @@ const Page3 = () => {
 
   const navigate = useNavigate(); // React Router hook for navigation
 
-  function handleOnClick(event) {
-    navigate('/page2'); // Navigate to '/page2' when the button is clicked
-  }
+
 
   function handleOnClick2(event) {
     navigate('/'); // Navigate to the home page when the button is clicked
@@ -33,11 +32,11 @@ const Page3 = () => {
         <ProgressBar bgcolor="#36545d" completed={completed} /> {/* Render the ProgressBar component with background color and progress percentage */}
         <StudentExercise3 /> {/* Render the StudentExercise3 component */}
         <br></br>
-
+        <box>
         {/* Alternative implementation using custom Button component */}
-        <Button text="Back" onClick={handleOnClick} style={{ padding: "10px 28px", marginTop: "20px" }} /> {/* Render a button with 'Back' text, handleOnClick event handler, and custom styling */}
-        <Button text="Home" onClick={handleOnClick2} style={{ padding: "10px 28px", marginTop: "20px" }} /> {/* Render a button with 'Home' text, handleOnClick2 event handler, and custom styling */}
-
+        
+        
+        </box>
       </div>
     </div>
   );

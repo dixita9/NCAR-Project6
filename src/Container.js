@@ -7,12 +7,12 @@ const CustomContainer = ({ maxWidth, backgroundColor, color, marginTop, marginBo
     backgroundColor: backgroundColor || '#36545d',
     color: color || 'white',
     marginTop: marginTop || 10,
-    marginBottom: marginBottom || 10,
+    marginBottom: marginBottom || 3,
     borderRadius: '30px',
     overflow: 'hidden',
-    padding: '35px',
+    padding: '35px 100px',
     fontSize: '25px',
-
+    
   };
 
   return (

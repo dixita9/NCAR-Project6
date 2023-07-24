@@ -5,6 +5,7 @@ import Page1 from './page1';
 import Page2 from './page2';
 import Page3 from './page3';
 import Page4 from './page4';
+import HomePage from './Home';
 import { Route, Routes} from 'react-router-dom';
 
 // This is the main component of the application.
@@ -13,9 +14,11 @@ return (
 <div>
 <Routes>
 {/* This route renders Page0 component for any path that doesn't match other defined routes. */}
-    <Route path="/" element={<Page0 />} />
+    <Route path="/" element={<HomePage />} />
+    <Route path="/*" element={<HomePage/>} />
 
-    <Route path="/*" element={<Page0 />} />
+    <Route path="/page0" element={<Page0 />} />
+
     {/* This route renders Page1 component for the "/page1" path. */}
     <Route path="/page1" element={<Page1 />} />
 

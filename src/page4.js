@@ -10,7 +10,7 @@ import Header from './header';
 import CustomContainer from './Container';
 
 // Page 4  Component
-const Page4 = () => {
+const Page4 = (props) => {
     const completed = 0; // Variable to track progress completion
     const navigate = useNavigate(); // Hook to access navigation functionality
 
@@ -27,18 +27,21 @@ const Page4 = () => {
                 <Hiking />
             </div>*/}
 
-            <div className="content">
+          
+            <div className="content" >
                 
                 <Header title="Summary Page" subtitle="These are your results" />
                 <ProgressBar bgcolor="#36545d" completed={completed} /> {/* Progress bar component */}
                 <CustomContainer> <Summary /> {/* Summary component */} </CustomContainer>
                 
-                
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
                 <Button
                     text="Home"
                     onClick={handleOnClick2}
-                    style={{ padding: "10px 28px", marginTop: "20px" }}
+                    style={{ padding: "10px 28px", marginTop: "20px", marginBottom: "100px", alignItems: 'center'}}
                 /> {/* Button component for navigating to the home page */}
+               
+                </div>
             </div>
         </div>
     );

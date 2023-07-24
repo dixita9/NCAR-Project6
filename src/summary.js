@@ -9,14 +9,13 @@ const Summary = () => {
   const resultMessage4 = localStorage.getItem("resultMessage4")
   
   return (
-    <div style={{marginLeft : "40px", whiteSpace: 'pre-line' }}>
+    <div style={{ alignment: "center",paddingLeft: "35px", paddingRight: "60px",marginLeft : "40px", whiteSpace: 'pre-wrap', tabSize: '4'}}>
       {/* Displaying the results from different pages */}
-      {resultMessage && <p>  Page 0 result: <br></br>{resultMessage}</p>}
-      {resultMessage2 && <p> Page 1 result: <br></br>{resultMessage2}</p>}
-      {resultMessage3 && <p> Page 2 result: <br></br>{resultMessage3}</p>}
-      {resultMessage4 && <p> Page 3 result: <br></br>{resultMessage4}</p>}
+      {resultMessage && <p>Page 0 result: <br></br>{resultMessage}</p>}
+      {resultMessage2 && <p>Page 1 result: <br></br>{resultMessage2}</p>}
+      {resultMessage3 && <p>Page 2 result: <br></br>{resultMessage3}</p>}
+      {resultMessage4 && <p>Page 3 result: <br></br>{resultMessage4}</p>}
      
-
     </div>
   );
 };

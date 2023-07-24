@@ -5,9 +5,14 @@ import HelpIcon from '@mui/icons-material/Help';  // Importing the HelpIcon comp
 
 //Defining a functional component called CustomTooltip that accepts two props: title and placement (with a default value of 'top')
 export default function CustomTooltip({ title, placement = 'top' }) {
+  const tooltipStyle = {
+    color: "white",
+  };
+
+
   return (
     <div style={{ margin: '1px' }}>
-      <Tooltip title={title} placement={placement}>
+      <Tooltip title={title} placement={placement} style={tooltipStyle}>
         <IconButton>
           <HelpIcon />
         </IconButton>

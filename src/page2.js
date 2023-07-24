@@ -18,9 +18,6 @@ const Page2 = () => {
     navigate('/page3'); // Navigate to '/page3' when the button is clicked
   }
 
-  function handleOnClick2(event) {
-    navigate('/page1'); // Navigate to '/page1' when the button is clicked
-  }
 
   return (
     <div className="container">
@@ -36,8 +33,8 @@ const Page2 = () => {
           <Route path="/page3" element={<Page3 />} /> {/*Render the Page3 component for '/page3' path*/}
         </Routes>
 
-        <div style={{ marginLeft: "40px", margin: "20px" }}>
-          <Button text=" Back " onClick={handleOnClick2} style={{ padding: "10px 28px", marginTop: "20px" }} /> {/* Render the Button component with text and onClick event handler */}
+        <div >
+          
           <button type="button" onClick={handleOnClick} style={{ marginLeft: '40px', marginTop: "25px" }}>
             Next Page
           </button> {/* Render a regular button with onClick event handler */}
