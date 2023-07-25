@@ -1,73 +1,77 @@
+/* Center align the content within the .App container */
 .App {
   text-align: center;
-  
 }
 
+/* Style for the logo in the app */
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 40vmin; /* Set the height of the logo to 40% of the viewport's smaller dimension */
+  pointer-events: none; /* Prevent the logo from receiving pointer events */
 }
 
+/* Animation for the logo spin, only applies when prefers-reduced-motion is not enabled */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear; /* Apply a spinning animation to the logo */
   }
 }
 
+/* Styling for the header of the app */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #282c34; /* Set the background color of the header */
+  min-height: 100vh; /* Set the minimum height of the header to be 100% of the viewport height */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items in a column */
+  align-items: center; /* Center align items horizontally */
+  justify-content: center; /* Center align items vertically */
+  font-size: calc(10px + 2vmin); /* Calculate font size based on the viewport size */
+  color: white; /* Set the font color to white */
 }
 
+/* Styling for links within the app */
 .App-link {
-  color: #61dafb;
+  color: #61dafb; /* Set the color of links to a shade of blue */
 }
 
+/* Keyframes for the logo spin animation */
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* Starting point of the rotation */
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(360deg); /* Ending point of the rotation (full circle) */
   }
 }
 
+/* Styling for the container */
 .container {
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  
+  position: relative; /* Position relative to its normal position in the flow */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  overflow-y: hidden; /* Hide vertical overflow */
 }
 
+/* Styling for the background image */
 .background-image {
-  position: absolute;
-  top: 300px;
-  left: 750px;
-  width: 80%;
-  height: 100%;
-  z-index: -1;
+  position: absolute; /* Position absolutely within its relative container */
+  top: 300px; /* Distance from the top of the container */
+  left: 750px; /* Distance from the left of the container */
+  width: 80%; /* Set the width to 80% of the container */
+  height: 100%; /* Set the height to 100% of the container */
+  z-index: -1; /* Place the background image behind other elements */
 }
 
+/* Styling for the content section */
 .content {
-  position: relative;
+  position: relative; /* Position relatively within its normal flow */
 }
 
+/* Styling for radio input elements */
 input[type="radio"] {
-  background-color: #f0f0f0;
-  border: 2px solid #333;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  accent-color: black; 
+  background-color: #f0f0f0; /* Set the background color for radio input */
+  border: 2px solid #333; /* Set the border for radio input */
+  border-radius: 50%; /* Make the radio input round by setting a border-radius of 50% */
+  width: 20px; /* Set the width of the radio input */
+  height: 20px; /* Set the height of the radio input */
+  margin-right: 5px; /* Add a margin to the right of the radio input */
+  accent-color: black; /* Set the accent color of the radio input (this property is not standard) */
 }
-
-
-
-

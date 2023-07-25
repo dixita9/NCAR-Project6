@@ -26,6 +26,7 @@ const Page0 = () => {
   return (
     <div className="container">
       <div className="background-image">
+        {/*background image*/}
       <Hiking imageUrl={HikingImage} height = "600px" width = "750px"imagePosition={[100, -30]}creditPosition={{ bottom: 65, right: 55 }}/> {/* Render the Hiking component */}
       </div>
       <div className="content">

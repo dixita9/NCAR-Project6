@@ -37,18 +37,17 @@ const StudentExercise0 = () => {
     const { name, value } = e.target;
     if (name === 'answer') {
       setAnswer(value);
-      localStorage.setItem('answer', value);
     } else if (name === 'answer2') {
       setAnswer2(value);
-      localStorage.setItem('answer2', value);
     } else if (name === 'answer3') {
       setAnswer3(value);
-      localStorage.setItem('answer3', value);
     } else if (name === 'answer4') {
       setAnswer4(value);
-      localStorage.setItem('answer4', value);
     }
+    // Store the updated values in local storage
+    localStorage.setItem(name, value);
   };
+
 
   
  
@@ -58,7 +57,7 @@ const StudentExercise0 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (answer && answer2 && answer3 && answer4) {
+    if (answer && answer2 && answer3 && answer4 ) {
       setSubmitted(true);
       const start = `Based on your answers, it appears that there is still some work that needs to be done before you can start the process of GPU-enablement.In particular the following steps should be done first:`; //This string is shown if user chooses one or more "No"s 
       const string1 = 'Create a Makefile'; //This string is displayed if the user chooses No for Question 1

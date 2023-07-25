@@ -22,12 +22,7 @@ const Page4 = (props) => {
     // JSX code for rendering the component
     return (
         <div className="container">
-            {/* Background image */}
-            {/*<div className="background-image">
-                <Hiking />
-            </div>*/}
-
-          
+           
             <div className="content" >
                 
                 <Header title="Summary Page" subtitle="These are your results" />

@@ -13,8 +13,8 @@ export default function CustomTooltip({ title, placement = 'top' }) {
   return (
     <div style={{ margin: '1px' }}>
       <Tooltip title={title} placement={placement} style={tooltipStyle}>
-        <IconButton>
-          <HelpIcon />
+        <IconButton> 
+          <HelpIcon /> {/*Help Icon added*/}
         </IconButton>
       </Tooltip>
     </div>

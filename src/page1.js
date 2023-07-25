@@ -26,6 +26,7 @@ const Page1 = () => {
   return (
     <div className="container">
       <div className="background-image">
+        {/*background image*/}
       <Hiking imageUrl={HikingImage} height = "630px" width = "750px"imagePosition={[100, -80]}creditPosition={{ bottom: 115, right: 10 }}/> {/* Render the Hiking component */}
       </div>
       <div className="content">
@@ -39,7 +40,7 @@ const Page1 = () => {
         </Routes>
 
         {/* Button to navigate to the next page */}
-        {/*<button type="button" onClick={handleClick} style={{ marginLeft: '40px' }}>
+      {/*<button type="button" onClick={handleClick} style={{ marginLeft: '40px' }}>
           Next Page
   </button>*/}
         

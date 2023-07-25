@@ -7,13 +7,13 @@ import CustomBox from './Box';
 function StudentExercise2() {
    // State variables
   const [showOptions2, setShowOptions2] = useState(false);
-  const [PointResult, setPointResult] = useState("")
+  const [PointResult, setPointResult] = useState(0);
   const [result, setResult] = useState('');
-  const [answer, setAnswer] = useState('');
-  const [answer2, setAnswer2] = useState('');
-  const [answer3, setAnswer3] = useState('');
-  const [answer4, setAnswer4] = useState('');
-  const [answer5, setAnswer5] = useState('');
+  const [answer10, setAnswer10] = useState('');
+  const [answer11, setAnswer11] = useState('');
+  const [answer12, setAnswer12] = useState('');
+  const [answer13, setAnswer13] = useState('');
+  const [answer14, setAnswer14] = useState('');
   const [resultMessage3, setResultMessage3] = useState('');
   const navigate = useNavigate();
   const smallBrStyle = { marginBottom: '0.2em' }; 
@@ -25,6 +25,10 @@ function StudentExercise2() {
     const selectedValue = event.target.value;
     setShowOptions2(selectedValue === 'yes');
     localStorage.setItem('showOptions2', selectedValue === 'yes' ? 'true' : 'false');
+    if (selectedValue === 'no') {
+      setAnswer11(''); // Clear the response for Question 2 from state
+      localStorage.removeItem('answer11'); // Clear the response for Question 2 from local storage
+    }
   };
 
   // Function to caculate points
@@ -34,47 +38,47 @@ function StudentExercise2() {
     let allOptionsSelected = true; // Flag to track if all options are selected
 
     if ( //condition to check if all questions have been answered
-      answer &&
-      ((answer === 'yes' &&
-        (answer2 === 'yes' || answer2 === 'no')) ||
-        answer === 'no') &&
-      (answer3 === 'yes' || answer3 === 'no') &&
-      (answer4 === 'yes' || answer4 === 'no') &&
-      (answer5 === 'yes' || answer5 === 'no')
+      answer10 &&
+      ((answer11 === 'yes' &&
+        (answer11 === 'yes' || answer11 === 'no')) ||
+        answer10 === 'no') &&
+      (answer12 === 'yes' || answer12 === 'no') &&
+      (answer13 === 'yes' || answer13 === 'no') &&
+      (answer14 === 'yes' || answer14 === 'no')
     ) {
-      if (answer === 'yes') { 
+      if (answer10 === 'yes') { 
         newTotalPoints += 0; //if first answer is yes, 0 points are added to newTotalPoints
 
-        if (answer2 === 'yes') {
+        if (answer11 === 'yes') {
           newTotalPoints += 1; //if second answer is yes, 1 point is added to newTotalPoints
-        } else if (answer2 === 'no') {
+        } else if (answer11 === 'no') {
           newTotalPoints += 3; //if second answer is no, 3 points are added to newTotalPoints
         }
-      } else if (answer === 'no') {
+      } else if (answer10 === 'no') {
         newTotalPoints += 4;  //if first answer is no, 4 points are added to newTotalPoints
       }
 
-      if (answer3 === 'yes') {  
+      if (answer12 === 'yes') {  
         newTotalPoints += 1; //if third answer is yes, 1 point is added to newTotalPoints
-      } else if (answer3 === 'no') {
+      } else if (answer12 === 'no') {
         newTotalPoints += 7; //if third answer is no, 7 points are added to newTotalPoints
       }
 
-      if (answer4 === 'yes') { 
+      if (answer13 === 'yes') { 
         newTotalPoints += 1; //if fourth answer is yes, 1 point is added to newTotalPoints
-      } else if (answer4 === 'no') {
+      } else if (answer13 === 'no') {
         newTotalPoints += 7; //if fourth answer is no, 7 points are added to newTotalPoints
       }
 
-      if (answer5 === 'yes') {
+      if (answer14 === 'yes') {
         newTotalPoints += 1; //if fifth answer is yes, 1 point is added to newTotalPoints
-      } else if (answer5 === 'no') {
+      } else if (answer14 === 'no') {
         newTotalPoints += 7; //if fifth answer is no, 7 points are added to newTotalPoints
       }
 
 
-    setPointResult("TotalPoints" , newTotalPoints) //This statement assigns "newTotalPoints" variable to the "Total Points" variable
-    localStorage.setItem("TotalPoints", newTotalPoints); //This line stores "newTotalPoints" in local storage so it can be retrieved and displayed in the summary page. 
+    setPointResult(newTotalPoints) //This statement assigns "newTotalPoints" variable to the "Total Points" variable
+     //This line stores "newTotalPoints" in local storage so it can be retrieved and displayed in the summary page. 
 
     let result2 = "" //An empty string name "reslut2" is initialized which is later used to output the result message.
     let num = 0 //This variables is used to create an ordered list for the output. 
@@ -108,7 +112,7 @@ function StudentExercise2() {
       result2 += string1 //if newTotalPoints is less than 25, string is concatentaed at the beginning of the "result2" string
     }
 
-    if(answer == "yes"){
+    if(answer10 == "yes"){
       //if first answer is "yes", num is incrementated and concatenated to the "result2" string along with "ques1yes" string
       num += 1
       result2 += "\n\t"+ num + ". " + ques1yes
@@ -118,7 +122,7 @@ function StudentExercise2() {
       result2 += "\n\t"+ num + ". " + ques1no
     }
 
-    if(answer2 == "yes"){
+    if(answer11 == "yes"){
        //if second answer is "yes" num is incrementated and concatenated to the "result2" string along with "ques2yes" string
       num += 1
       result2 += "\n\t"+ num + ". " + ques2yes
@@ -128,7 +132,7 @@ function StudentExercise2() {
       result2 += "\n\t"+ num + ". " + ques2no
     }
 
-    if(answer3 == "yes"){
+    if(answer12 == "yes"){
        //if third answer is "yes" num is incrementated and concatenated to the "result2" string along with "ques3yes" string
       num += 1
       result2 += "\n\t"+ num + ". " + ques3yes
@@ -152,25 +156,28 @@ function StudentExercise2() {
 
   const handleCalculatePoints = () => {
     calculatePoints(); // Call calculatePoints 
-    localStorage.setItem('answer', answer);
-    localStorage.setItem('answer2', answer2);
-    localStorage.setItem('answer3', answer3);
-    localStorage.setItem('answer4', answer4);
-    localStorage.setItem('answer5', answer5);
+    localStorage.setItem('answer10', answer10);
+    localStorage.setItem('answer11', answer11);
+    localStorage.setItem('answer12', answer12);
+    localStorage.setItem('answer13', answer13);
+    localStorage.setItem('answer14', answer14);
+      
   };
+
 
   
 
   // Function to clear options and reset the form
   const clearOptions = () => {
-    setAnswer('');
-    setAnswer2('');
-    setAnswer3('');
-    setAnswer4('');
-    setAnswer5('');
+    setAnswer10('');
+    setAnswer11('');
+    setAnswer12('');
+    setAnswer13('');
+    setAnswer14('');
     setPointResult("");
     setResult("")
     setResultMessage3 ("");
+    
   };
 
   function handleOnClick2(event) {
@@ -186,26 +193,30 @@ function StudentExercise2() {
     clearOptions();
   };
 
+    // Function to update local storage when the answer state variables change
+
   useEffect(() => {
-    const storedShowOptions2 = localStorage.getItem('showOptions2');
-    if (storedShowOptions2) {
-    setShowOptions2(storedShowOptions2 === 'true');
+    const savedAnswer = localStorage.getItem('answer10');
+    const savedAnswer2 = localStorage.getItem('answer11');
+    const savedAnswer3 = localStorage.getItem('answer12');
+    const savedAnswer4 = localStorage.getItem('answer13');
+    const savedAnswer5 = localStorage.getItem('answer14');
+    const showOptions2 = localStorage.getItem('showOptions2') === 'true';
+
+    
+  if (savedAnswer !== null) setAnswer10(savedAnswer);
+  if (savedAnswer2 !== null) setAnswer11(savedAnswer2);
+  if (savedAnswer3 !== null) setAnswer12(savedAnswer3);
+  if (savedAnswer4 !== null) setAnswer13(savedAnswer4);
+  if (savedAnswer5 !== null) setAnswer14(savedAnswer5);
+    setShowOptions2(showOptions2);
+
+    if (savedAnswer === 'no') {
+      localStorage.removeItem('answer11');
+      setAnswer11('');
     }
-    const storedAnswer = localStorage.getItem('answer');
-    if (storedAnswer) setAnswer(storedAnswer);
-
-    const storedAnswer2 = localStorage.getItem('answer2');
-    if (storedAnswer2) setAnswer2(storedAnswer2);
-
-    const storedAnswer3 = localStorage.getItem('answer3');
-    if (storedAnswer3) setAnswer3(storedAnswer3);
-
-    const storedAnswer4 = localStorage.getItem('answer4');
-    if (storedAnswer4) setAnswer4(storedAnswer4);
-
-    const storedAnswer5 = localStorage.getItem('answer5');
-    if (storedAnswer5) setAnswer5(storedAnswer5);
   }, []);
+  
 
   return (
     <div >
@@ -219,22 +230,22 @@ function StudentExercise2() {
         <label>
           <input
             type="radio"
-            name="answer"
+            name="answer10"
             value="yes"
             onClick={handleShowAdditionalQues}
-            checked={answer === 'yes'}
-            onChange={(e) => setAnswer(e.target.value)}
+            checked={answer10 === 'yes'}
+            onChange={(e) => setAnswer10(e.target.value)}
           />{' '}
           Yes 
         </label>
         <label style = {{marginLeft: "60px"}}>
           <input
             type="radio"
-            name="answer"
+            name="answer10"
             value="no"
             onClick={handleShowAdditionalQues}
-            checked={answer === 'no'}
-            onChange={(e) => setAnswer(e.target.value)}
+            checked={answer10 === 'no'}
+            onChange={(e) => setAnswer10(e.target.value)}
           />{' '}
           No 
         </label>
@@ -249,20 +260,20 @@ function StudentExercise2() {
             <label>
               <input
                 type="radio"
-                name="answer2"
+                name="answer11"
                 value="yes"
-                checked={answer2 === 'yes'}
-                onChange={(e) => setAnswer2(e.target.value)}
+                checked={answer11 === 'yes'}
+                onChange={(e) => setAnswer11(e.target.value)}
               />{' '}
               Yes 
             </label>
             <label style = {{marginLeft: "60px"}}>
               <input
                 type="radio"
-                name="answer2"
+                name="answer11"
                 value="no"
-                checked={answer2 === 'no'}
-                onChange={(e) => setAnswer2(e.target.value)}
+                checked={answer11 === 'no'}
+                onChange={(e) => setAnswer11(e.target.value)}
               />{' '}
               No 
             </label>
@@ -281,20 +292,20 @@ function StudentExercise2() {
             <label>
               <input
                 type="radio"
-                name="answer3"
+                name="answer12"
                 value="yes"
-                checked={answer3 === 'yes'}
-                onChange={(e) => setAnswer3(e.target.value)}
+                checked={answer12 === 'yes'}
+                onChange={(e) => setAnswer12(e.target.value)}
               />{' '}
               Yes 
             </label>
             <label style = {{marginLeft: "60px"}}>
               <input
                 type="radio"
-                name="answer3"
+                name="answer12"
                 value="no"
-                checked={answer3 === 'no'}
-                onChange={(e) => setAnswer3(e.target.value)}
+                checked={answer12 === 'no'}
+                onChange={(e) => setAnswer12(e.target.value)}
               />{' '}
               No 
             </label>
@@ -307,20 +318,20 @@ function StudentExercise2() {
             <label>
               <input
                 type="radio"
-                name="answer4"
+                name="answer13"
                 value="yes"
-                checked={answer4 === 'yes'}
-                onChange={(e) => setAnswer4(e.target.value)}
+                checked={answer13 === 'yes'}
+                onChange={(e) => setAnswer13(e.target.value)}
               />{' '}
               Yes 
             </label>
             <label style = {{marginLeft: "60px"}}>
               <input
                 type="radio"
-                name="answer4"
+                name="answer13"
                 value="no"
-                checked={answer4 === 'no'}
-                onChange={(e) => setAnswer4(e.target.value)}
+                checked={answer13 === 'no'}
+                onChange={(e) => setAnswer13(e.target.value)}
               />{' '}
               No 
             </label>
@@ -333,20 +344,20 @@ function StudentExercise2() {
             <label>
               <input
                 type="radio"
-                name="answer5"
+                name="answer14"
                 value="yes"
-                checked={answer5 === 'yes'}
-                onChange={(e) => setAnswer5(e.target.value)}
+                checked={answer14 === 'yes'}
+                onChange={(e) => setAnswer14(e.target.value)}
               />{' '}
               Yes 
             </label>
             <label style = {{marginLeft: "60px"}}>
               <input
                 type="radio"
-                name="answer5"
+                name="answer14"
                 value="no"
-                checked={answer5 === 'no'}
-                onChange={(e) => setAnswer5(e.target.value)}
+                checked={answer14 === 'no'}
+                onChange={(e) => setAnswer14(e.target.value)}
               />{' '}
               No 
             </label>
