@@ -18,7 +18,7 @@ const Button = ({ text, onClick, style}) => {
   };
 
   return (
-    <button
+    <button 
       style={buttonStyle}
       onClick={onClick}
     >
