@@ -9,6 +9,7 @@ import Page0 from './page0';
 import Header from './header';
 import Button from './Button';
 import HomeContent from './HomeContent';
+import HikingImage from './image/hiking.jpg';
 
 
 // Page0 component
@@ -27,7 +28,7 @@ const HomePage = () => {
         {/* Header component */}
         <Header title="HOME PAGE" subtitle="5 MINUTES" />
         <div className="background-image">
-        <Hiking />
+        <Hiking imageUrl={HikingImage} height = "520px" width = "825px" imagePosition={[45, -40]} creditPosition={{ bottom: 75, right: -60 }}/>
         </div>
         <Routes>
           {/* Route for StudentExercise0 */}
@@ -36,9 +37,9 @@ const HomePage = () => {
           <Route path="/page0" element={<Page0 />} />
         </Routes>
         {/* Next page button */}
-        <button type="button" onClick={handleClick} style={{ marginLeft: '40px' }}>
+        {/*<button type="button" onClick={handleClick} style={{ marginLeft: '40px' }}>
           Next Page
-        </button>
+  </button>*/}
       </div>
     </div>
   );

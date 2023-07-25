@@ -1,6 +1,7 @@
 // Import required modules from 'react' and 'react-router-dom'
 import React from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
+import HikingImage from './image/vehicle.jpg';
 
 // Import custom components
 import ProgressBar from './ProgressBar';
@@ -25,7 +26,7 @@ const Page1 = () => {
   return (
     <div className="container">
       <div className="background-image">
-        <Hiking /> {/* Render the Hiking component */}
+      <Hiking imageUrl={HikingImage} height = "630px" width = "750px"imagePosition={[100, -80]}creditPosition={{ bottom: 115, right: 10 }}/> {/* Render the Hiking component */}
       </div>
       <div className="content">
         <Header title="STUDENT EXERCISE 1" subtitle="5 MINUTES" /> {/* Render the Header component with title and subtitle */}
@@ -38,9 +39,9 @@ const Page1 = () => {
         </Routes>
 
         {/* Button to navigate to the next page */}
-        <button type="button" onClick={handleClick} style={{ marginLeft: '40px' }}>
+        {/*<button type="button" onClick={handleClick} style={{ marginLeft: '40px' }}>
           Next Page
-        </button>
+  </button>*/}
         
         {/* Button to navigate back to the home page */}
         

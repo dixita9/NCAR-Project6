@@ -6,7 +6,8 @@ import Hiking from './hiking';
 import StudentExercise2 from './StudentExercises2'; 
 import Page3 from './page3'; 
 import Button from './Button';
-import Header from './header'; 
+import Header from './header';
+import HikingImage from './image/climbing.jpg'; 
 import {Route, Routes, useNavigate} from 'react-router-dom'; // Importing required components from react-router-dom
 
 //Page 2 Component
@@ -22,7 +23,7 @@ const Page2 = () => {
   return (
     <div className="container">
       <div className="background-image">
-        <Hiking /> {/*Render the Hiking component*/}
+      <Hiking imageUrl={HikingImage} height = "600px" width = "650px" imagePosition={[70, -40]}creditPosition={{ bottom: 75, right: 90 }}/> {/*Render the Hiking component*/}
       </div>
       <div className="content">
         <Header title="STUDENT EXERCISE 2" subtitle="13 MINUTES" /> {/*Render the Header component with title and subtitle*/}
@@ -35,7 +36,7 @@ const Page2 = () => {
 
         <div >
           
-          <button type="button" onClick={handleOnClick} style={{ marginLeft: '40px', marginTop: "25px" }}>
+          {/*<button type="button" onClick={handleOnClick} style={{ marginLeft: '40px', marginTop: "25px" }}>
             Next Page
           </button> {/* Render a regular button with onClick event handler */}
         </div> 

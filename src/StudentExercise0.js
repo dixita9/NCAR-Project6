@@ -9,6 +9,9 @@ import { Box } from '@mui/material';
 import HomeContent from './HomeContent';
 
 
+
+
+
 const StudentExercise0 = () => {
   // State variables
   const [answer, setAnswer] = useState(localStorage.getItem('answer') || '');
@@ -26,8 +29,8 @@ const StudentExercise0 = () => {
     setAnswer3(localStorage.getItem('answer3') || '');
     setAnswer4(localStorage.getItem('answer4') || '');
   }, []);
-
-
+  
+  
 
   // Function to handle input changes
   const handleInputChange = (e) => {
@@ -61,9 +64,13 @@ const StudentExercise0 = () => {
       const string1 = 'Create a Makefile'; //This string is displayed if the user chooses No for Question 1
       const string2 = 'Add the ability to flexibly execute the code by other users'; //This string is displayed if the user chooses No for Question 2
       const string3 = 'Add your code  into revision control system like Git'; //This string is displayed if the user chooses No for Question 3
-      const string4 = 'Develop a verification framework that allows the identification of non-bit-for-bit answer changes from software bugs'; //This string is displayed if the user chooses No for Question 4
+      const string4 = `Develop a verification framework that allows the identification of non-bit-for-bit \n\t    answer changes from software bugs` ; //This string is displayed if the user chooses No for Question 4
       let num = 0 //This variables is used to create an ordered list for the output. 
-      //num increments as the number of "No"s chosen by the user go up
+      //num increments as the number of "No"s chosen by the user go 
+      
+      
+  
+
       let result = "" ; //An empty string is initialized which is later used to output the result message.
 
 
@@ -90,7 +97,9 @@ const StudentExercise0 = () => {
 
       if(answer4 == "no"){
         num += 1 //Since the answer is no, num is incremented and concatenated to the first string
-        result += "\n\t"+ num + ". " + string4//If the second answer is no, then string4 is concatenated to the "result" string
+        result += "\n\t"+ num + ". " + string4
+        
+         //If the second answer is no, then string4 is concatenated to the "result" string
       }
       
       setResultMessage (result); //This statement assigns "result" variable to the "ResultMessage" variable
@@ -118,9 +127,9 @@ const StudentExercise0 = () => {
   };
 
   return (
-    <div style = {{ alignment: "center"}}>
-      <form onSubmit={handleSubmit}>
-        <CustomBox>
+    <div >
+      <form onSubmit={handleSubmit} style = {{ alignment: "center"}}>
+        <CustomBox width ="500px" height= "550px">
         <div>
           <ol>
             <br></br>
@@ -232,7 +241,7 @@ const StudentExercise0 = () => {
         {/*<Box sx={{ width: '60px', height: '40px', border: '1px solid black', marginLeft:"623px" }}></Box>*/}
 
       
-        <div style = {{marginLeft: "253.5px"}}>
+        <div style = {{marginLeft: "253.5px", marginBottom: "100px"}}>
         <Button text=" Back " onClick={handleOnClick2}/>
         <Button text="Clear" onClick={clearOptions} style ={{ marginLeft : "10px" , marginRight:"10px"}}/>{/*Clear Button*/}
         <Button text="Next" style = {{ }}/> {/*Submit Button*/}

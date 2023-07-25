@@ -202,8 +202,8 @@ useEffect(() => {
   return (
     <div >
 
-      <div style={{ marginLeft: '40px' }}>
-        <CustomBox>
+      <div >
+      <CustomBox width ="500px" height= "550px">
         <ol>
           {/*Question 1 */}
           <li>How many levels of nesting are there?</li><br></br>
@@ -277,7 +277,7 @@ useEffect(() => {
         </ol>
         </CustomBox>
                 
-        <div style = {{marginLeft: "249px"}}>
+        <div style = {{marginLeft: "249px", marginBottom: "100px"}}>
           <Button text="Back" onClick={handleOnClick} style={{ padding: "10px 28px" }} /> {/* Render a button with 'Back' text, handleOnClick event handler, and custom styling */}
             {/*Submit Button*/}
             

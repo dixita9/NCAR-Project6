@@ -75,22 +75,22 @@ const StudentExercise1 = () => {
           //Below string is shown when the division result is greater than 50, iofreq is less than 100 and throughput is chosen  
           const start1 = `Based on your input, it appears that your science objective is amenable to GPU-based computing. This assessment is based on several of your answers:`
           //Below string is shown when division result is greater than 50
-          const True1 = `The number of grid points of ${divisionResult} per GPU or node is sufficient.\nTypically, a GPU based computing solution requires in excessive of ${threshold} grid points per GPU`
+          const True1 = `The number of grid points of ${divisionResult} per GPU or node is sufficient.Typically, a GPU based \n\t    computing solution requires in excessive of ${threshold} grid points per GPU`
 
           //Below string is shown when iofreq is less than 100
-          const True2 = `GPU’s are designed for computationally heavy problems.\nYou indicated that you perform approximately ${volume} Mbytes of disk I/O every ${frequency} seconds.It sounds like a significant percentage of time for your application is spent performing computations.This is necessary but not sufficient condition for the efficient use of GPU-based computing.`
+          const True2 = `GPU’s are designed for computationally heavy problems.\n You indicated that you \n\t\t    perform approximately ${volume} Mbytes of disk I/O every ${frequency} seconds. It sounds like a significant percentage of time for your application is spent performing computations. This is necessary but not sufficient condition for the efficient use of GPU-based computing.`
 
 
           //Below string is shown if either division result is less than 50 OR iofreq is greater than 100 OR rate is chosen
           const start2 = `Based on your input, it does not appear that your science objective is amenable to GPU-based computing.This assessment is based on several of your answers:`
 
           //Below string is shown if division result is less than 50
-          const False1 = `The number of grid points per GPU or node is rather low ${divisionResult}.Typically, a GPU based computing solution requires in excess of ${threshold} grid points per GPU. What can I do about this?\n\t\ta. Is the size of your problem sufficient to address your science objective or is it a limitation of your existing compute solution. If it is sufficient to address your science objective, then there does not appear to be an advantage of GPU-based solution versus a CPU-based solution.  If it is not sufficient, then a GPU-based solution may enable improvement of the fidelity of your simulations.`
+          const False1 = `The number of grid points per GPU or node is rather low ${divisionResult}. Typically, a GPU based \n\t    computing solution requires in excess of ${threshold} grid points per GPU. What can I do \n\t    about this?\n\t\ta. Is the size of your problem sufficient to address your science objective or is it a \n\t\t    limitation of your existing compute solution. If it is sufficient to address your \n\t\t    science objective, then there does not appear to be an advantage of GPU-\n\t\t    based solution versus a CPU-based solution. If it is not sufficient, then a GPU-\n\t\t    based solution may enable improvement of the fidelity of your simulations.`
           
             //Below string is shown if iofrq is greater than 100
-          const False2 = `GPU’s are designed for computationally heavy problems.You indicated that you perform approximately ${volume} Mbytes of disk I/O every ${frequency} seconds. A significant percentage of time for your application will likely be spent moving data from the GPU memory to the disk subsystem. What can I do about this? Can you reduce the amount of I/O that your application performs`
+          const False2 = `GPU’s are designed for computationally heavy problems. You indicated that \n\t    you perform approximately ${volume} Mbytes of disk I/O every ${frequency} seconds. \n\t    A significant percentage of time for your application will likely be spent moving data \n\t    from the GPU memory to the disk subsystem. What can I do about this? \n\t    Can you reduce the amount of I/O that your application performs`
           //Below string is shown if rate is chosen
-          const False3 = `You indicated that your problem has a [[strong, moderate, weak} ${answer2} limitation. While GPU-based computing can successfully be used for both rate and throughput computing tasks, it frequently does better for throughput based computing.`
+          const False3 = `You indicated that your problem has a [[strong, moderate, weak} ${answer2} limitation. \n\t    While GPU-based computing can successfully be used for both rate and throughput \n\t    computing tasks, it frequently does better for throughput based computing.`
 
 
           let num = 0//This variables is used to create an ordered list for the output. 
@@ -98,7 +98,7 @@ const StudentExercise1 = () => {
         
           if ( division > 50 && iof < 100 && answer2 == "throughput"){ 
             //if division result is greater than 50, iofreq is less than 100 and throuhgput is chosen, "start1", "True1" and "True2" are concatenated
-            result = start1 + "\n\t" + "a. " + True1 + "\n"+ "b. "+ True2
+            result = start1 + "\n\t" + "a. " + True1 + "\n\t"+ "b. "+ True2
           }
           else{
             //if division result is less than 50 OR iofreq is greater than 100 OR rate is chosen, then "start2" is set to the empty "result" string
@@ -185,7 +185,7 @@ const StudentExercise1 = () => {
       
 
       <form onSubmit={handleSubmit}>
-      <CustomBox>
+      <CustomBox width ="500px" height= "550px">
         <div>
                     
           <div>
@@ -280,7 +280,7 @@ const StudentExercise1 = () => {
         
         </div><br></br>
         </CustomBox>
-        <div style = {{marginLeft: "253.5px"}}>
+        <div style = {{marginLeft: "253.5px", marginBottom: "100px"}}>
         <Button text=" Back " onClick={handleOnClick2}  />
         
         <Button text = "Clear" onClick = {clearOptions} style ={{ marginLeft : "10px" , marginRight:"10px"}} />{/*Clear Button*/}

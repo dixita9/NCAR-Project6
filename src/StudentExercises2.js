@@ -17,6 +17,8 @@ function StudentExercise2() {
   const [resultMessage3, setResultMessage3] = useState('');
   const navigate = useNavigate();
   const smallBrStyle = { marginBottom: '0.2em' }; 
+  const product = localStorage.getItem("product")
+  const NumGP = localStorage.getItem("divisionResult")
 
    // Function to show the second part of question 1 when user selects "yes"
   const handleShowAdditionalQues = (event) => {
@@ -82,25 +84,24 @@ function StudentExercise2() {
     result2 += start // "start"  string is concatenated at the beginning of the "result2" string
 
     //Below string is concatenated to "result2" string if "newTotalPoints" is greater less than 25
-    const string1 = "Based on your answers, it appears that your code is ready to start the process of GPU-enablement. Let us try and figure out how much work it might take."
+    const string1 = " Based on your answers, it appears that your code is ready to start the process of GPU-enablement. Let us try and figure out how much work it might take."
 
     //Below string is concatenated to the "result2" string if the user answers "yes" to question 1
-    const ques1yes = "It is great news that a version of your application has already been GPU-enabled. This considerably reduces the difficulty." 
+    const ques1yes = "It is great news that a version of your application has already been GPU-enabled. \n\t    This considerably reduces the difficulty." 
     
     //Below string is concatenated to the "result2" string if the user answers "no" to question 1
-    const ques1no = "It looks like your science objective is not currently GPU-enabled. Based on your answers we can estimate effort to achieve GPU-enablement."
+    const ques1no = "It looks like your science objective is not currently GPU-enabled. \n\t    Based on your answers we can estimate effort to achieve GPU-enablement."
 
     //Below string is concatenated to the "result2" string if the user answers "yes" to question 2
-    const ques2yes = "Also great news that the necessary physics packages are supported on GPU.  It sounds like you just need to learn how to submit jobs to a GPU-based platform"
+    const ques2yes = "Also great news that the necessary physics packages are supported on GPU. It \n\t    sounds like you just need to learn how to submit jobs to a GPU-based platform"
 
     //Below string is concatenated to the "result2" string if the user answers "no" to question 2
-    const ques2no = "Unfortunately  not all of the code necessary for your science objective is GPU-enabled.  The amount of work necessary to GPU-enable your science objective"
+    const ques2no = "Unfortunately  not all of the code necessary for your science objective is GPU-enabled. \n\t    The amount of work necessary to GPU-enable your science objective"
 
     //Below string is concatenated to the "result2" string if the user answers "yes" to question 3
-    const ques3yes = `It appears that the number of grid points per GPU or node [numGP] is approximately equal to the number of iterations in loop bodies [numIter]. This greatly simplifies GPU-enablement because all the parallelism is exposed in one place. Congratulations, it appears that your code is GPU-ready.\n\t\t i. The next step is to decide on the programming approach to achieve GPU-enablement. Several programming options are available including: \n\t\t\ta. Language based approaches using C++ productivity frameworks \n\t\t\tb. Writing in an explicitly GPU based language like CUDA, CUDA Fortran or HIP\n\t\t\tc. Directive based approaches \n\t\tii.The choice of programming language approach is based on your goals\n\t\t\ta. Do you want to maintain portability across multiple compute platforms → productivity framework or directive based approach \n\t\t\tb. Not concerned about portability → consider explicitly GPU based languages \n
-    `
+    const ques3yes = `It appears that the number of grid points per GPU or node [${NumGP}] is approximately \n\t    equal to the number of iterations in loop bodies [${product}]. This greatly simplifies \n\t    GPU-enablement because all the parallelism is exposed in one place. \n\t    Congratulations, it appears that your code is GPU-ready.\n\t\t i. The next step is to decide on the programming approach to achieve GPU-\n\t\t    enablement. Several programming options are available including: \n\t\t\ta. Language based approaches using C++ productivity frameworks \n\t\t\tb. Writing in an explicitly GPU based language like CUDA, CUDA Fortran\n\t\t\t     or HIP\n\t\t\tc. Directive based approaches \n\t\tii.The choice of programming language approach is based on your goals\n\t\t\ta. Do you want to maintain portability across multiple compute platforms → \n\t\t\t    productivity framework or directive based approach \n\t\t\tb. Not concerned about portability → consider explicitly GPU based \n\t\t\t    languages \n`
     //Below string is concatenated to the "result2" string if the user answers "yes" to question 3
-    const ques3no = "Because the total number of grid points per GPU or node [numGP] is significantly larger than the number of iterations [numiter] this looks like some code transformation is necessary. Unfortunately this is quite common and can take a significant amount of effort to adequately expose the parallelism necessary"
+    const ques3no = `Because the total number of grid points per GPU or node [${NumGP}] is significantly larger \n\t    than the number of iterations [${product}] this looks like some code transformation is \n\t    necessary. Unfortunately this is quite common and can take a significant amount of \n\t    effort to adequately expose the parallelism necessary`
 
 
     if (newTotalPoints < 25){
@@ -146,14 +147,7 @@ function StudentExercise2() {
 
     if (!allOptionsSelected) {
       alert('Please select all options before calculating points.');//display this message is all options are not selected
-    }
-
-    
-   
-
-
-
-    
+    } 
   };
 
   const handleCalculatePoints = () => {
@@ -216,7 +210,7 @@ function StudentExercise2() {
   return (
     <div >
       <div>
-      <CustomBox >
+      <CustomBox width ="500px" height= "550px">
       <ol>
         {/*Question 1 */}
         <div style = {{marginBottom: "18px"}}>
@@ -367,7 +361,7 @@ function StudentExercise2() {
 
       </div>
       
-      <div style = {{marginLeft: "253.5px"}}>
+      <div style = {{marginLeft: "253.5px", marginBottom: "100px"}}>
       <Button text = "Back" onClick = {handleOnClick2}></Button>
       <Button text = "Clear" onClick = {handleClearOptions} style ={{ marginLeft : "10px" , marginRight:"10px"}}/>
       <Button text = "Next" onClick = {handleCalculatePoints}  />

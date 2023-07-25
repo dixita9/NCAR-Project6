@@ -9,6 +9,7 @@ import StudentExercise3 from './StudentExercises3';
 import Button from './Button';
 import Header from './header';
 import { Box } from '@mui/material';
+import HikingImage from './image/Fire.jpg';
 
 //Page 3 Component
 const Page3 = () => {
@@ -25,7 +26,7 @@ const Page3 = () => {
   return (
     <div className="container">
       <div className="background-image">
-        <Hiking /> {/* Render the Hiking component */}
+      <Hiking imageUrl={HikingImage} height = "600px" width = "650px"imagePosition={[70, -45]}creditPosition={{ bottom: 70, right: 90 }}/> {/* Render the Hiking component */}
       </div>
       <div className="content">
         <Header title="STUDENT EXERCISE 3" subtitle="5 MINUTES" /> {/* Render the Header component with title and subtitle */}
