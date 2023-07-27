@@ -39,7 +39,7 @@ function StudentExercise2() {
 
     if ( //condition to check if all questions have been answered
       answer10 &&
-      ((answer11 === 'yes' &&
+      ((answer10 === 'yes' &&
         (answer11 === 'yes' || answer11 === 'no')) ||
         answer10 === 'no') &&
       (answer12 === 'yes' || answer12 === 'no') &&
