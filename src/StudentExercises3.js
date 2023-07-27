@@ -1,7 +1,8 @@
 // Importing necessary dependencies and components
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import {Route, Routes, useNavigate} from 'react-router-dom';
 import Button from './Button';
+import CustomBox from './Box';
 
 
 const StudentExercise3 = () => {
@@ -11,7 +12,7 @@ const StudentExercise3 = () => {
   const [message, setMessage] = useState('');
   const [result, setResult] = useState('');
   const [numVar, setNumVar] = useState('');
-  const [wordSize, setWordSize] = useState('');
+  const [wordSize, setwordSize] = useState('');
   const [resultMessage4, setResultMessage4] = useState('');
   const navigate = useNavigate();
 
@@ -33,6 +34,10 @@ const StudentExercise3 = () => {
       document.getElementById("question2").style.display = "none";
       setMessage("");
     }
+
+    // Store the selected option and second question visibility in local storage
+    localStorage.setItem("selectedNumber", selectedOption);
+    localStorage.setItem("question2Visible", selectedOption !== "");
   };
 
 
@@ -86,6 +91,7 @@ const StudentExercise3 = () => {
 
         //This line stores "product" variable in local storage so it can be retrieved and displayed in the summary page. 
         localStorage.setItem('product', product);
+        
 
         //working set size (wss) is calculated by multiplying "product", "numVar" and "wordSize"
         let wss = product * parseInt(numVar) * parseInt(wordSize)
@@ -95,28 +101,31 @@ const StudentExercise3 = () => {
 
         //string1 and string2 are concatenated at the start of the "result" string
         const string1 = "Next let us discuss both the return on the investment (ROI) converting your computational infrastructure to GPU-based computing and the difficulty with achieving this ROI."
-        const string2 = `a. Let's first talk about Return on Investment.  You indicated that the extent of loop bodies is approximately ${product}.  You also indicated that a common loop body contains ${numVar}, ${wordSize} bytes variables. This suggests that inner loops access ${wss} bytes of variables.`
+        const string2 = `\t1. Let's first talk about Return on Investment.  You indicated that the extent of loop \n\t\    bodies is approximately ${product}. You also indicated that a common loop body contains \n\t    ${numVar}, ${wordSize} bytes variables. This suggests that inner loops access ${wss} bytes of variables.`
 
         //wws1 is concatenated the to "result" string if the value of "wss" is greater than 75
-        const wss1 = `    1. Because  ${wss} wss is significantly larger than the typical last level cache size. Your problem should achieve a ROI of approximately 3 to 4 due to the differences in main memory bandwidth between CPU and GPU. Would a reduction in the time to perform your science of 3 to 4 have a significant impact on your ability to perform your science?`
+        const wss1 = `a. Because  ${wss} wss is significantly larger than the typical last level cache size. \n\t\t    Your problem should achieve a ROI of approximately 3 to 4 due to the \n\t\t    differences in main memory bandwidth between CPU and GPU. Would a \n\t\t    reduction in the time to perform your science of 3 to 4 have a significant \n\t\t    impact on your ability to perform your science?`
 
         //wws1 is concatenated the to "result" string if the value of "wss" is less than 75
-        const wss2 = `    1. Because ${wss} wss is significantly smaller than the typical last level cache size.  Your code is likely already running pretty efficiently on a CPU-based platform. GPU-enablement will yield a very modest ROI. `
+        const wss2 = `a. Because ${wss} wss is significantly smaller than the typical last level cache size. \n\t\t    Your code is likely already running pretty efficiently on a CPU-based platform. \n\t\t    GPU-enablement will yield a very modest ROI. `
 
         result = string1 + "\n" + string2 //string1 and string2 are concatentaed the "result" string
 
         if (wss > 75){
         // if "wss" is greater than 75, "wss1" is concatenated to the "result" string
-          result += "\n" + wss1
+          result += "\n\t\t" + wss1
 
         } else {
 
         // if "wss" is less than 75, "wss2" is concatenated to the "result" string
 
-          result += "\n" + wss2
+          result += "\n\t\t" + wss2
 
         }
-
+        localStorage.setItem('selectedNumber', selectedNumber);
+        localStorage.setItem('numVar', numVar);
+        localStorage.setItem('wordSize', wordSize);
+        localStorage.setItem('inputValue', inputValue);
 
         setResultMessage4 (result);//This statement assigns "result" variable to the "ResultMessage3" variable
         localStorage.setItem('resultMessage4', result); //This line stores "result" variable in local storage so it can be retrieved and displayed in the summary page. 
@@ -153,6 +162,8 @@ const StudentExercise3 = () => {
     setInputValue("");
     setResult("");
     setResultMessage4 ("");
+    setwordSize(" ")
+    setNumVar("")
     document.getElementById("question2").style.display = "none";
 
 };
@@ -162,15 +173,37 @@ function handleOnClick3(event) {
 };
 
 
+function handleOnClick(event) {
+  navigate('/page2'); // Navigate to '/page2' when the button is clicked
+};
 
+useEffect(() => {
+  // Load data from local storage when the component mounts
+  const selectedOption = localStorage.getItem('selectedNumber');
+  const numVarValue = localStorage.getItem('numVar');
+  const wordSizeValue = localStorage.getItem('wordSize');
+  const inputValueValue = localStorage.getItem('inputValue');
+  const question2Visible = localStorage.getItem('question2Visible'); // Retrieve the second question visibility
 
+  setSelectedNumber(selectedOption || ''); // Use empty string as default if null or undefined
+  setNumVar(numVarValue || '');
+  setwordSize(wordSizeValue || '');
+  setInputValue(inputValueValue || '');
 
+   // Set the visibility of the second question based on the value retrieved from local storage
+   if (question2Visible === "true") {
+    document.getElementById("question2").style.display = "block";
+  } else {
+    document.getElementById("question2").style.display = "none";
+  }
+}, []);
 
 
   return (
     <div >
 
-      <div style={{ marginLeft: '40px' }}>
+      <div >
+      <CustomBox width ="500px" height= "550px">
         <ol>
           {/*Question 1 */}
           <li>How many levels of nesting are there?</li><br></br>
@@ -219,8 +252,8 @@ function handleOnClick3(event) {
                 type="radio"
                 name="wordsize"
                 value="4"
-                  
-                onChange={(e) => setWordSize(e.target.value)}
+                checked={wordSize === "4"}
+                onChange={(e) => setwordSize(e.target.value)}
               />
                 4 Bytes
           </label>
@@ -231,8 +264,8 @@ function handleOnClick3(event) {
                 type="radio"
                 name="wordsize"
                 value="8"
-                  
-                onChange={(e) => setWordSize(e.target.value)}
+                checked={wordSize === "8"}
+                onChange={(e) => setwordSize(e.target.value)}
                 />
               8 Bytes
           </label>
@@ -242,18 +275,21 @@ function handleOnClick3(event) {
 
 
         </ol>
-
+        </CustomBox>
                 
-        <div style = {{marginLeft:"-40px" , marginTop:"20px"}}> <br></br>
+        <div style = {{marginLeft: "249px", marginBottom: "100px"}}>
+          <Button text="Back" onClick={handleOnClick} style={{ padding: "10px 28px" }} /> {/* Render a button with 'Back' text, handleOnClick event handler, and custom styling */}
             {/*Submit Button*/}
-            <Button text = "Submit" onClick = {handleSubmit} />
+            
 
             {/*Clear Button*/}
-            <Button text = "Clear" onClick = {handleClear} style = {{ padding: "10px 28px"}}/>
+            <Button text = "Clear" onClick = {handleClear} style ={{ marginLeft : "10px" , marginRight:"10px"}}/>
+            <Button text = "Submit" onClick = {handleSubmit} />
             
-          </div> <br></br>
+          </div> <br></br><br></br>
           {/*Get Results Button - Takes the user to the summary page*/}
-        <Button text = "Get Results" onClick = {handleOnClick3} style = {{ padding: "10px 28px"}}/>
+          {/*<Button text = "Get Results" onClick = {handleOnClick3} style = {{ padding: "10px 28px"}}/>*/}
+          
       </div>
 
 

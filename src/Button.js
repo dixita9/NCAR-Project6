@@ -5,11 +5,11 @@ const Button = ({ text, onClick, style}) => {
     backgroundColor: '#36545d', /* Set your desired background color */
     color: 'white', /* Set the text color */
     border: 'none', /* Remove the button border */
-    padding: '10px 20px', /* Adjust the paadding as needed */
+    padding: '10px 28px', /* Adjust the paadding as needed */
     fontSize: '16px', /* Set the font size */
     cursor: 'pointer', /* Add a cursor pointer on hover */
     borderRadius: '5px',
-    marginLeft: "50px",
+    marginLeft: 0,
     ... style
   };
 
@@ -18,7 +18,7 @@ const Button = ({ text, onClick, style}) => {
   };
 
   return (
-    <button
+    <button 
       style={buttonStyle}
       onClick={onClick}
     >
