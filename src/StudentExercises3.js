@@ -138,7 +138,7 @@ const StudentExercise3 = () => {
         alert("Please enter valid numbers separated by commas."); //This message is shown when user enters non-integer values for Question1
       }
     } else {
-        if (selectedOptionNum == 1){
+        if (selectedOptionNum === 1){
         alert("Please enter a number")} //This message is shown if "selectedOptionNum" is 1 but user enters more or less numbers
         else if (selectedNumber){
         
