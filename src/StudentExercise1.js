@@ -222,7 +222,7 @@ const StudentExercise1 = () => {
             <li><div style={{ display: 'flex', alignItems: 'center' }}>
                {/*Question 2 - I/O Frequency*/}
                 What is the volume and frequency of I/O?
-                <CustomTooltip title="Best explanation you can find for I/O frequency and Volume" placement="right" />
+                <CustomTooltip title="The volume and frequency of I/O refer to the amount and rate of data being read from or written to a storage device, affecting system performance and responsiveness." placement="right" />
               </div></li>
               {/*Question 2 input1 - volume*/}
               <label>Volume:<br></br>
@@ -250,7 +250,7 @@ const StudentExercise1 = () => {
 
                 {/*Question 3 - rate or throughput*/}
                 Do you have rate or throughput limitations?
-                <CustomTooltip title="A really good explanation of rate and throughput" placement="right" />
+                <CustomTooltip title="Rate and throughput both refer to the speed at which data is transferred, with rate focusing on individual data units, while throughput represents the overall data transfer capacity." placement="right" />
               </div></li> 
             <br></br>
             <div id="options2">
