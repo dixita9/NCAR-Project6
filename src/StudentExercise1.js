@@ -96,7 +96,7 @@ const StudentExercise1 = () => {
           let num = 0//This variables is used to create an ordered list for the output. 
           //num increments as the number of "No"s chosen by the user go up
         
-          if ( division > 50 && iof < 100 && answer2 == "throughput"){ 
+          if ( division > 50 && iof < 100 && answer2 === "throughput"){ 
             //if division result is greater than 50, iofreq is less than 100 and throuhgput is chosen, "start1", "True1" and "True2" are concatenated
             result = start1 + "\n\t" + "a. " + True1 + "\n\t"+ "b. "+ True2
           }
@@ -112,15 +112,17 @@ const StudentExercise1 = () => {
           }
 
           if (iof > 100){
-             //if iofreq is greater than 100, num is incremented and concatenated to the result string alog with "False2" 
-            num +=1
-            result += "\n\t"+ num + ". " + False2
+             //if iofreq is greater than 100, num is incremented and concatenated to 
+             // the result string alog with "False2" 
+             num +=1
+             result += "\n\t"+ num + ". " + False2
           }
 
-          if(answer2 == "rate"){
-             //if rate is chosen, num is incremented and concatenated to the result string alog with "False3" 
-            num +=1
-            result += "\n\t"+ num + ". " + False3
+          if(answer2 === "rate"){
+             // if rate is chosen, num is incremented and concatenated to the result 
+             // string alog with "False3" 
+             num +=1
+             result += "\n\t"+ num + ". " + False3
           }
 
 
@@ -222,10 +224,13 @@ const StudentExercise1 = () => {
             <li><div style={{ display: 'flex', alignItems: 'center' }}>
                {/*Question 2 - I/O Frequency*/}
                 What is the volume and frequency of I/O?
-                <CustomTooltip title="The volume and frequency of I/O refer to the amount and rate of data being read from or written to a storage device, affecting system performance and responsiveness." placement="right" />
+                <CustomTooltip title="The volume and frequency of I/O refer to 
+                       the amount and rate of data being read from or written 
+                       to a storage device, affecting system performance and 
+                       responsiveness." placement="right" />
               </div></li>
               {/*Question 2 input1 - volume*/}
-              <label>Volume:<br></br>
+              <label>Volume in MBytes <br></br>
               <input
                 type="text"
                 name="volume"
@@ -237,7 +242,7 @@ const StudentExercise1 = () => {
 
             <label>
               {/*Question 2 input1 - frequency*/}
-              Frequency:<br></br>
+              Time between I/O in seconds <br></br>
               <input
                 type="text"
                 name="frequency"
@@ -250,7 +255,10 @@ const StudentExercise1 = () => {
 
                 {/*Question 3 - rate or throughput*/}
                 Do you have rate or throughput limitations?
-                <CustomTooltip title="Rate and throughput both refer to the speed at which data is transferred, with rate focusing on individual data units, while throughput represents the overall data transfer capacity." placement="right" />
+                <CustomTooltip title="Rate and throughput both refer to 
+		       the speed at which data is transferred, with rate 
+                       focusing on individual data units, while throughput 
+                       represents the overall data transfer capacity." placement="right" />
               </div></li> 
             <br></br>
             <div id="options2">
