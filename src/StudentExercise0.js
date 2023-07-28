@@ -135,7 +135,7 @@ const StudentExercise0 = () => {
             <li><div style={{ display: 'flex', alignItems: 'center' }}>
               {/* Question 1 - MakeFile */}
               Do you have a Makefile created for your code?
-                <CustomTooltip title="This is the best way to explain make file" placement="right" />
+                <CustomTooltip title="A Makefile is a script-like text file used to automate the compilation and building of software projects by defining rules for dependencies and actions needed to generate target files." placement="right" />
               </div></li><br></br>
             
             <div id="options">
