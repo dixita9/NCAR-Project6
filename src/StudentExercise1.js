@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import CustomTooltip from './ToolTip';
 import Button from './Button';
 import Summary from './summary';
-import {Route, Routes, useNavigate} from 'react-router-dom';
+// import {Route, Routes, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import CustomBox from './Box';
 
 
@@ -98,7 +99,7 @@ const StudentExercise1 = () => {
         
           if ( division > 50 && iof < 100 && answer2 === "throughput"){ 
             //if division result is greater than 50, iofreq is less than 100 and throuhgput is chosen, "start1", "True1" and "True2" are concatenated
-            result = start1 + "\n\t" + "a. " + True1 + "\n\t"+ "b. "+ True2
+            result = start1 + "\n\t a. " + True1 + "\n\t b. "+ True2
           }
           else{
             //if division result is less than 50 OR iofreq is greater than 100 OR rate is chosen, then "start2" is set to the empty "result" string

@@ -1,5 +1,6 @@
 // Importing react and necessary dependencies 
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import React from 'react';
 import HikingImage from './image/goal.jpg';
 import CustomBox from './Box';
 
