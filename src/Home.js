@@ -1,6 +1,5 @@
 // Import required modules from 'react' and 'react-router-dom'
 import React from 'react';
-// import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 
 // Import custom components
@@ -8,7 +7,6 @@ import { Route, Routes } from 'react-router-dom';
 import Hiking from './hiking';
 import Page0 from './page0';
 import Header from './header';
-//import Button from './Button';
 import HomeContent from './HomeContent';
 import HikingImage from './image/hiking.jpg';
 

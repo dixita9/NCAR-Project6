@@ -1,13 +1,9 @@
 // Importing necessary dependencies and components
 import React, { useState, useEffect} from 'react';
-// import {Route, Routes, useNavigate} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import CustomTooltip from './ToolTip';
 import Button from './Button';
-// import Summary from './summary';
 import CustomBox from './Box';
-// import { Box } from '@mui/material';
-// import HomeContent from './HomeContent';
 
 
 

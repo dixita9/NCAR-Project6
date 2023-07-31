@@ -1,6 +1,5 @@
 // Import required modules from 'react' and 'react-router-dom'
 import React from 'react';
-// import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import HikingImage from './image/vehicle.jpg';
 
@@ -10,8 +9,6 @@ import Hiking from './hiking';
 import Header from './header';
 import Page2 from './page2';
 import StudentExercise1 from './StudentExercise1';
-// import Button from './Button';
-// import CustomBox from './Box';
 
 // Page 1 Component
 const Page1 = () => {

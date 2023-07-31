@@ -5,10 +5,8 @@ import ProgressBar from './ProgressBar';
 import Hiking from './hiking'; 
 import StudentExercise2 from './StudentExercises2'; 
 import Page3 from './page3'; 
-// import Button from './Button';
 import Header from './header';
 import HikingImage from './image/climbing.jpg'; 
-// import {Route, Routes, useNavigate} from 'react-router-dom'; // Importing required components from react-router-dom
 import {Route, Routes} from 'react-router-dom'; // Importing required components from react-router-dom
 
 //Page 2 Component

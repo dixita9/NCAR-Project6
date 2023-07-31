@@ -1,15 +1,11 @@
 // Import required modules from 'react' and 'react-router-dom'
 import React from 'react';
-//import {Route, Routes, useNavigate} from 'react-router-dom';
-// import {useNavigate} from 'react-router-dom';
-// Import custom components
 import ProgressBar from './ProgressBar';
 import Hiking from './hiking';
 import StudentExercise3 from './StudentExercises3';
 
 // import Button from './Button';
 import Header from './header';
-// import { Box } from '@mui/material';
 import HikingImage from './image/Fire.jpg';
 
 //Page 3 Component

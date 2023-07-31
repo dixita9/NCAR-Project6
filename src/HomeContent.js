@@ -1,12 +1,9 @@
 // Import required modules from 'react' and 'react-router-dom'
 import React from 'react';
-//import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import CustomBox from './Box';
 // Import custom components
 import Button from './Button';
-//import { Box } from '@mui/material';
-// import StudentExercise0 from './StudentExercise0';
 // Page0 component
 const HomeContent = () => {
   const navigate = useNavigate();

@@ -1,6 +1,5 @@
 // Import required modules from 'react' and 'react-router-dom'
 import React from 'react';
-// import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 
 // Import custom components
