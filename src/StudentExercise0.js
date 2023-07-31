@@ -183,7 +183,12 @@ const StudentExercise0 = () => {
               </label>
             </div><br></br>
             {/* Question 2 - Flexibility*/}
-            <li>Do you have the ability to flexibly execute your code by other users?</li><br></br>
+            <li><div style={{ display: 'flex', alignItems: 'center' }}>
+            Do you have the ability to flexibly execute your code by other users?
+               <CustomTooltip title="The ablity to flexibly execute your code by other 
+                      users allows other developers ton contribute to code development." placement="right" />
+            </div></li><br></br>
+
             <div id="options2">
           
               <label>
@@ -208,7 +213,11 @@ const StudentExercise0 = () => {
               </label>
             </div><br></br>
             {/* Question 3 - Git */}
-            <li>Is your code in a revision control system like Git?</li><br></br>
+            <li><div style={{ display: 'flex', alignItems: 'center' }}>
+               Is your code in a revision control system like Git?
+               <CustomTooltip title="Use of a revision control system like Git enables 
+                        the management of developers contribution to your code." placement="right" />
+            </div></li><br></br>
             <div id="options3">
               <label>
                 <input
