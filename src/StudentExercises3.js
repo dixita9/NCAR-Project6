@@ -1,6 +1,6 @@
 // Importing necessary dependencies and components
 import React, { useState , useEffect } from 'react';
-import {Route, Routes, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Button from './Button';
 import CustomBox from './Box';
 
@@ -101,7 +101,7 @@ const StudentExercise3 = () => {
 
         //string1 and string2 are concatenated at the start of the "result" string
         const string1 = "Next let us discuss both the return on the investment (ROI) converting your computational infrastructure to GPU-based computing and the difficulty with achieving this ROI."
-        const string2 = `\t1. Let's first talk about Return on Investment.  You indicated that the extent of loop \n\t\    bodies is approximately ${product}. You also indicated that a common loop body contains \n\t    ${numVar}, ${wordSize} bytes variables. This suggests that inner loops access ${wss} bytes of variables.`
+        const string2 = `\t1. Let's first talk about Return on Investment.  You indicated that the extent of loop \n\t    bodies is approximately ${product}. You also indicated that a common loop body contains \n\t    ${numVar}, ${wordSize} bytes variables. This suggests that inner loops access ${wss} bytes of variables.`
 
         //wws1 is concatenated the to "result" string if the value of "wss" is greater than 75
         const wss1 = `a. Because  ${wss} wss is significantly larger than the typical last level cache size. \n\t\t    Your problem should achieve a ROI of approximately 3 to 4 due to the \n\t\t    differences in main memory bandwidth between CPU and GPU. Would a \n\t\t    reduction in the time to perform your science of 3 to 4 have a significant \n\t\t    impact on your ability to perform your science?`
@@ -138,7 +138,7 @@ const StudentExercise3 = () => {
         alert("Please enter valid numbers separated by commas."); //This message is shown when user enters non-integer values for Question1
       }
     } else {
-        if (selectedOptionNum == 1){
+        if (selectedOptionNum === 1){
         alert("Please enter a number")} //This message is shown if "selectedOptionNum" is 1 but user enters more or less numbers
         else if (selectedNumber){
         
@@ -168,14 +168,11 @@ const StudentExercise3 = () => {
 
 };
 
-function handleOnClick3(event) {
-  navigate('/page4');
-};
+// function handleOnClick3(event) {navigate('/page4');};
 
 
-function handleOnClick(event) {
-  navigate('/page2'); // Navigate to '/page2' when the button is clicked
-};
+// Navigate to '/page2' when the button is clicked
+function handleOnClick(event) {navigate('/page2');};
 
 useEffect(() => {
   // Load data from local storage when the component mounts

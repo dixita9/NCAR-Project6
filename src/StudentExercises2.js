@@ -1,6 +1,6 @@
 // Importing necessary dependencies and components
 import React, { useState, useEffect} from 'react';
-import {Route, Routes, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import Button from './Button';
 import CustomBox from './Box';
 
@@ -112,7 +112,7 @@ function StudentExercise2() {
       result2 += string1 //if newTotalPoints is less than 25, string is concatentaed at the beginning of the "result2" string
     }
 
-    if(answer10 == "yes"){
+    if(answer10 === "yes"){
       //if first answer is "yes", num is incrementated and concatenated to the "result2" string along with "ques1yes" string
       num += 1
       result2 += "\n\t"+ num + ". " + ques1yes
@@ -122,7 +122,7 @@ function StudentExercise2() {
       result2 += "\n\t"+ num + ". " + ques1no
     }
 
-    if(answer11 == "yes"){
+    if(answer11 === "yes"){
        //if second answer is "yes" num is incrementated and concatenated to the "result2" string along with "ques2yes" string
       num += 1
       result2 += "\n\t"+ num + ". " + ques2yes
@@ -132,7 +132,7 @@ function StudentExercise2() {
       result2 += "\n\t"+ num + ". " + ques2no
     }
 
-    if(answer12 == "yes"){
+    if(answer12 === "yes"){
        //if third answer is "yes" num is incrementated and concatenated to the "result2" string along with "ques3yes" string
       num += 1
       result2 += "\n\t"+ num + ". " + ques3yes
